@@ -5,7 +5,8 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
 import "@/app/globals.css";
-import { LanguageToggle } from "@/components/layout/LanguageToggle";
+import { Footer } from "@/components/layout/Footer";
+import { Navbar } from "@/components/layout/Navbar";
 import { routing } from "@/i18n/routing";
 import { FONT_VARIABLES } from "@/lib/fonts";
 
@@ -26,13 +27,21 @@ export default async function LocaleLayout({
 }: LayoutProps<"/[locale]">) {
   const locale = await rootLocale();
   if (!hasLocale(routing.locales, locale)) notFound();
+  const t = await getTranslations("Nav");
 
   return (
     <html lang={locale} className={FONT_VARIABLES}>
       <body className="flex min-h-dvh flex-col">
         <NextIntlClientProvider>
-          <LanguageToggle />
+          <a
+            href="#main-content"
+            className="sr-only z-50 rounded-pill bg-card px-4 py-2 font-bold focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
+          >
+            {t("skipToContent")}
+          </a>
+          <Navbar />
           {children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
