@@ -15,6 +15,7 @@ import { useTranslations } from "next-intl";
 import {
   FRAME_CLASS,
   FRAME_POSITIONS,
+  FRAME_POSITIONS_MOBILE,
   frameSizes,
   frameStyle,
 } from "@/components/hero/desk-layout";
@@ -53,6 +54,7 @@ export function Frame({ frame }: FrameProps) {
     isPausedByUser ||
     prefersReducedMotion === true;
   const position = FRAME_POSITIONS[frame.id];
+  const mobilePosition = FRAME_POSITIONS_MOBILE[frame.id];
   const image = { src: frame.src, width: frame.width, height: frame.height };
   const { hole } = frame;
 
@@ -91,7 +93,7 @@ export function Frame({ frame }: FrameProps) {
       onFocus={handleFocus}
       onBlur={() => setIsKeyboardFocused(false)}
       className={cn(FRAME_CLASS, "block cursor-pointer")}
-      style={frameStyle(position, image)}
+      style={frameStyle(position, mobilePosition, image)}
     >
       <span
         className="absolute top-(--ht) left-(--hl) h-(--hht) w-(--hwd) overflow-hidden bg-blush"
@@ -109,7 +111,7 @@ export function Frame({ frame }: FrameProps) {
             <Image
               src={photo.src}
               fill
-              sizes={frameSizes(position, image, hole.width / 100)}
+              sizes={frameSizes(position, mobilePosition, image, hole.width / 100)}
               alt={t(`${frame.id}.photos.${PHOTO_KEYS[index]}`)}
               draggable={false}
               className="object-cover select-none"
@@ -121,7 +123,7 @@ export function Frame({ frame }: FrameProps) {
         src={frame.src}
         width={frame.width}
         height={frame.height}
-        sizes={frameSizes(position, image)}
+        sizes={frameSizes(position, mobilePosition, image)}
         alt=""
         draggable={false}
         className="relative size-full select-none"

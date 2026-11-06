@@ -15,20 +15,20 @@ export function Hero() {
         <div className="hero-layout pt-4 md:pt-6 xl:pt-0">
           <div className="area-text relative z-10 flex min-w-0 flex-col gap-4 xl:max-w-hero-text xl:pt-6">
             <h1 id="hero-title" className="flex flex-col gap-2">
-              <span className="font-hand text-greeting font-bold text-matcha">
+              <span className="font-hand text-lg font-bold text-matcha md:text-greeting">
                 {t("greeting")}
               </span>
-              <span className="font-display text-display font-semibold break-words text-rose">
+              <span className="font-display text-display-mobile font-semibold break-words text-rose md:text-display">
                 {t("name")}
               </span>
             </h1>
-            <p className="max-w-xl text-lead text-muted-foreground">
+            <p className="max-w-xl text-lead-mobile text-muted-foreground md:text-lead">
               {t("tagline")}
             </p>
           </div>
 
-          <div className="area-cta relative z-10 mt-6 xl:mt-8">
-            <Link href="/about" className={buttonVariants()}>
+          <div className="area-cta relative z-10 mt-5 md:mt-6 xl:mt-8">
+            <Link href="/about" className={buttonVariants({ size: "hero" })}>
               {t("cta")}
               <ArrowIcon />
             </Link>
@@ -37,7 +37,7 @@ export function Hero() {
           <div
             role="group"
             aria-label={t("desk")}
-            className="area-desk -mx-gutter mt-8 snap-x snap-proximity overflow-x-auto overflow-y-hidden md:-mx-gutter-desktop xl:absolute xl:inset-0 xl:m-0 xl:snap-none xl:overflow-visible"
+            className="area-desk -mx-gutter mt-6 snap-x snap-proximity overflow-x-auto overflow-y-hidden md:-mx-gutter-desktop xl:absolute xl:inset-0 xl:m-0 xl:snap-none xl:overflow-visible"
           >
             <div className="w-full min-w-desk xl:h-full">
               <Desk />

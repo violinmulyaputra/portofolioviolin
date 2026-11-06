@@ -40,7 +40,7 @@ export type BookData = {
 };
 
 // Scene
-const COMPACT_SCENE = { width: 1000, height: 400 };
+const COMPACT_SCENE = { width: 1000, height: 360 };
 const WIDE_SCENE = { width: 1840, height: 925 };
 const COMPACT_SCENE_MAX_PX = 760;
 const WIDE_SCENE_MAX_PX = 1136;
@@ -137,35 +137,35 @@ export const BOOKS: readonly BookData[] = [
     href: "/about",
     image: ILLUSTRATIONS.bookAbout,
     spine: { centerX: 49.3, centerY: 52.4, length: 61.8, thickness: 34.4, rotate: 17, orientation: "vertical" },
-    placement: { compact: { left: 1, height: 24.38 }, wide: { left: 0.27, height: 14.05 } },
+    placement: { compact: { left: 1, height: 27.09 }, wide: { left: 0.27, height: 14.05 } },
   },
   {
     key: "projects",
     href: "/projects",
     image: ILLUSTRATIONS.bookProjects,
     spine: { centerX: 49.8, centerY: 50.7, length: 59.2, thickness: 66.6, rotate: 0, orientation: "vertical" },
-    placement: { compact: { left: 6, height: 41.75 }, wide: { left: 3.91, height: 24.11 } },
+    placement: { compact: { left: 6, height: 46.39 }, wide: { left: 3.91, height: 24.11 } },
   },
   {
     key: "experiences",
     href: "/experiences",
     image: ILLUSTRATIONS.bookExperiences,
     spine: { centerX: 49.1, centerY: 51.2, length: 65.3, thickness: 63.3, rotate: 0, orientation: "vertical" },
-    placement: { compact: { left: 10, height: 49.88 }, wide: { left: 6.79, height: 28.76 } },
+    placement: { compact: { left: 10, height: 55.42 }, wide: { left: 6.79, height: 28.76 } },
   },
   {
     key: "cv",
     href: "/cv",
     image: ILLUSTRATIONS.bookCv,
     spine: { centerX: 49.9, centerY: 52.3, length: 50.8, thickness: 70.6, rotate: 0, orientation: "horizontal" },
-    placement: { compact: { left: 13.9, height: 26.5 }, wide: { left: 9.62, height: 15.24 } },
+    placement: { compact: { left: 13.9, height: 29.44 }, wide: { left: 9.62, height: 15.24 } },
   },
   {
     key: "contact",
     href: "/contact",
     image: ILLUSTRATIONS.bookContact,
     spine: { centerX: 49.1, centerY: 56.1, length: 78.9, thickness: 67.5, rotate: 0, orientation: "vertical" },
-    placement: { compact: { left: 19.2, height: 35.63 }, wide: { left: 13.48, height: 20.54 } },
+    placement: { compact: { left: 19.2, height: 39.59 }, wide: { left: 13.48, height: 20.54 } },
   },
 ];
 
@@ -178,10 +178,18 @@ export const FRAME_WALL = {
   ratio: 1.185,
   widePx: 392,
   compactMaxPx: 300,
+  mobileMaxPx: 215,
+  mobileRatio: 100 / 169,
 };
 
 export const FRAME_CLASS =
-  "absolute top-(--ft) left-(--fl) h-(--fh) aspect-(--ratio)";
+  "absolute top-(--ftm) left-(--flm) h-(--fhm) aspect-(--ratio) md:top-(--ft) md:left-(--fl) md:h-(--fh)";
+
+export const FRAME_POSITIONS_MOBILE: Record<FrameId, Placement> = {
+  a: { left: 0, top: 34.32, height: 30.77 },
+  b: { left: 48, top: 0, height: 30.77 },
+  c: { left: 26, top: 68.64, height: 31.18 },
+};
 
 export const FRAME_POSITIONS: Record<FrameId, Placement> = {
   a: { left: 0, top: 36.62, height: 43.73 },
@@ -198,27 +206,36 @@ export function frameWallStyle(): CSSProperties {
   } as CSSProperties;
 }
 
-export function frameStyle(position: Placement, image: Illustration) {
+export function frameStyle(
+  position: Placement,
+  mobile: Placement,
+  image: Illustration,
+) {
   return {
     "--fl": `${position.left}%`,
     "--ft": `${position.top ?? 0}%`,
     "--fh": `${position.height}%`,
+    "--flm": `${mobile.left}%`,
+    "--ftm": `${mobile.top ?? 0}%`,
+    "--fhm": `${mobile.height}%`,
     "--ratio": `${image.width} / ${image.height}`,
   } as CSSProperties;
 }
 
 export function frameSizes(
   position: Placement,
+  mobile: Placement,
   image: Illustration,
   fraction = 1,
 ) {
-  const share =
-    ((position.height / 100) / FRAME_WALL.ratio) *
-    (image.width / image.height) *
-    fraction;
+  const ratio = image.width / image.height;
+  const share = ((position.height / 100) / FRAME_WALL.ratio) * ratio * fraction;
+  const mobileShare =
+    ((mobile.height / 100) / FRAME_WALL.mobileRatio) * ratio * fraction;
   const wide = Math.ceil(share * FRAME_WALL.widePx);
   const compact = Math.ceil(share * FRAME_WALL.compactMaxPx);
-  return `(min-width: 1280px) ${wide}px, ${compact}px`;
+  const small = Math.ceil(mobileShare * FRAME_WALL.mobileMaxPx);
+  return `(min-width: 1280px) ${wide}px, (min-width: 768px) ${compact}px, ${small}px`;
 }
 
 // Sticky notes
@@ -230,23 +247,23 @@ export const STICKY_NOTES: readonly {
   {
     key: "instagram",
     image: ILLUSTRATIONS.stickyInstagram,
-    placement: { compact: { left: 50, top: 20, height: 16.25 }, wide: { left: 45.49, top: 69.41, height: 9.3 } },
+    placement: { compact: { left: 50, top: 11.11, height: 18.06 }, wide: { left: 45.49, top: 69.41, height: 9.3 } },
   },
   {
     key: "github",
     image: ILLUSTRATIONS.stickyGithub,
-    placement: { compact: { left: 57.5, top: 11.75, height: 16.25 }, wide: { left: 52.17, top: 66.16, height: 9.73 } },
+    placement: { compact: { left: 57.5, top: 1.94, height: 18.06 }, wide: { left: 52.17, top: 66.16, height: 9.73 } },
   },
   {
     key: "linkedin",
     image: ILLUSTRATIONS.stickyLinkedin,
-    placement: { compact: { left: 53.5, top: 39.75, height: 16.25 }, wide: { left: 50.43, top: 79.46, height: 9.4 } },
+    placement: { compact: { left: 53.5, top: 33.06, height: 18.06 }, wide: { left: 50.43, top: 79.46, height: 9.4 } },
   },
 ];
 
 // Lamp and decorations
 export const LAMP_PLACEMENT: DeskPlacement = {
-  compact: { left: 82, height: 49.75 },
+  compact: { left: 82, height: 55.28 },
   wide: { left: 88.32, height: 28.65 },
 };
 
@@ -258,21 +275,21 @@ export const DECORATIONS: readonly {
   {
     key: "laptop",
     image: ILLUSTRATIONS.laptop,
-    placement: { compact: { left: 25.5, height: 42.75 }, wide: { left: 22.01, height: 24.65 } },
+    placement: { compact: { left: 25.5, height: 47.5 }, wide: { left: 22.01, height: 24.65 } },
   },
   {
     key: "mug",
     image: ILLUSTRATIONS.mug,
-    placement: { compact: { left: 49.5, height: 13.88 }, wide: { left: 39.95, height: 8 } },
+    placement: { compact: { left: 49.5, height: 15.42 }, wide: { left: 39.95, height: 8 } },
   },
   {
     key: "stationery",
     image: ILLUSTRATIONS.stationery,
-    placement: { compact: { left: 60, height: 29.5 }, wide: { left: 64.13, height: 16.97 } },
+    placement: { compact: { left: 60, height: 32.78 }, wide: { left: 64.13, height: 16.97 } },
   },
   {
     key: "plant",
     image: ILLUSTRATIONS.plant,
-    placement: { compact: { left: 68.5, height: 45.38 }, wide: { left: 77.45, height: 26.16 } },
+    placement: { compact: { left: 68.5, height: 50.42 }, wide: { left: 77.45, height: 26.16 } },
   },
 ];
