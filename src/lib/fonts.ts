@@ -19,6 +19,7 @@ export const gaegu = Gaegu({
   weight: ["400", "700"],
   variable: "--font-gaegu",
   display: "swap",
+  preload: false,
 });
 
 export const FONT_VARIABLES = [
