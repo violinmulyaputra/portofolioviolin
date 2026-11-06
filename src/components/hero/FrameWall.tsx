@@ -16,7 +16,7 @@ export function FrameWall({ className }: FrameWallProps) {
     <MotionConfig reducedMotion="user">
       <div
         className={cn(
-          "relative aspect-frame-wall-mobile w-full md:aspect-frame-wall xl:absolute xl:top-(--wall-top) xl:left-(--wall-left) xl:h-(--wall-height) xl:w-(--wall-width)",
+          "relative aspect-frame-wall-mobile w-full max-w-frame-wall-mobile justify-self-end md:max-w-none md:aspect-frame-wall xl:absolute xl:top-(--wall-top) xl:left-(--wall-left) xl:h-(--wall-height) xl:w-(--wall-width)",
           className,
         )}
         style={frameWallStyle()}

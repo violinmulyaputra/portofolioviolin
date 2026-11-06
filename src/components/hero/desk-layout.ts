@@ -178,7 +178,7 @@ export const FRAME_WALL = {
   ratio: 1.185,
   widePx: 392,
   compactMaxPx: 300,
-  mobileMaxPx: 215,
+  mobileMaxPx: 152,
   mobileRatio: 100 / 131,
 };
 
