@@ -27,8 +27,67 @@
     "email": "Email",
     "newTab": "opens in a new tab"
   },
-  "HomePage": {
-    "title": "Violin Mulya"
+  "Hero": {
+    "greeting": "Hello, I'm",
+    "name": "Violin Mulya!",
+    "tagline": "An Information Technology student at Universitas Gadjah Mada with interests in software development, data analysis, IoT, and design.",
+    "cta": "Get to Know Me Better",
+    "desk": "Desk",
+    "books": {
+      "about": {
+        "spine": "About",
+        "label": "About page"
+      },
+      "projects": {
+        "spine": "Projects",
+        "label": "Projects page"
+      },
+      "experiences": {
+        "spine": "Experiences",
+        "label": "Experiences page"
+      },
+      "cv": {
+        "spine": "CV",
+        "label": "CV page"
+      },
+      "contact": {
+        "spine": "Contact",
+        "label": "Contact page"
+      }
+    },
+    "stickies": {
+      "github": "GitHub (opens in a new tab)",
+      "linkedin": "LinkedIn (opens in a new tab)",
+      "instagram": "Instagram (opens in a new tab)"
+    },
+    "lamp": "Desk lamp",
+    "frames": {
+      "pause": "Pause photos: {name}",
+      "a": {
+        "name": "Me on campus",
+        "photos": {
+          "1": "Violin standing in front of a campus building",
+          "2": "Violin at the Department of Electrical and Information Engineering, Universitas Gadjah Mada",
+          "3": "Violin holding a group sign in front of the Department of Civil and Environmental Engineering"
+        }
+      },
+      "b": {
+        "name": "Campus moments",
+        "photos": {
+          "1": "A large group of students posing on campus stairs",
+          "2": "Students sitting together for a group photo",
+          "3": "Committee group photo at NESCO 2026"
+        }
+      },
+      "c": {
+        "name": "Events and committees",
+        "photos": {
+          "1": "Event committee in red shirts posing on stage",
+          "2": "A large group photo in an auditorium",
+          "3": "A group selfie with friends"
+        }
+      }
+    }
   },
   "AboutPage": {
     "title": "About Me"

@@ -27,8 +27,67 @@
     "email": "Email",
     "newTab": "terbuka di tab baru"
   },
-  "HomePage": {
-    "title": "Violin Mulya"
+  "Hero": {
+    "greeting": "Halo, saya",
+    "name": "Violin Mulya!",
+    "tagline": "Mahasiswa Teknologi Informasi Universitas Gadjah Mada yang tertarik pada pengembangan perangkat lunak, analisis data, IoT, dan desain.",
+    "cta": "Kenali Saya Lebih Jauh",
+    "desk": "Meja",
+    "books": {
+      "about": {
+        "spine": "Tentang",
+        "label": "Halaman Tentang"
+      },
+      "projects": {
+        "spine": "Proyek",
+        "label": "Halaman Proyek"
+      },
+      "experiences": {
+        "spine": "Pengalaman",
+        "label": "Halaman Pengalaman"
+      },
+      "cv": {
+        "spine": "CV",
+        "label": "Halaman CV"
+      },
+      "contact": {
+        "spine": "Kontak",
+        "label": "Halaman Kontak"
+      }
+    },
+    "stickies": {
+      "github": "GitHub (terbuka di tab baru)",
+      "linkedin": "LinkedIn (terbuka di tab baru)",
+      "instagram": "Instagram (terbuka di tab baru)"
+    },
+    "lamp": "Lampu meja",
+    "frames": {
+      "pause": "Jeda foto: {name}",
+      "a": {
+        "name": "Saya di kampus",
+        "photos": {
+          "1": "Violin berdiri di depan gedung kampus",
+          "2": "Violin di Departemen Teknik Elektro dan Teknologi Informasi, Universitas Gadjah Mada",
+          "3": "Violin memegang papan kelompok di depan Departemen Teknik Sipil dan Lingkungan"
+        }
+      },
+      "b": {
+        "name": "Momen kampus",
+        "photos": {
+          "1": "Rombongan mahasiswa berfoto di tangga kampus",
+          "2": "Mahasiswa duduk bersama untuk foto kelompok",
+          "3": "Foto bersama panitia NESCO 2026"
+        }
+      },
+      "c": {
+        "name": "Acara dan kepanitiaan",
+        "photos": {
+          "1": "Panitia berkaus merah berfoto di atas panggung",
+          "2": "Foto bersama rombongan besar di auditorium",
+          "3": "Swafoto bersama teman-teman"
+        }
+      }
+    }
   },
   "AboutPage": {
     "title": "Tentang Saya"

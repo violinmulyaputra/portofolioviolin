@@ -91,6 +91,45 @@
   --spacing-section: 64px;
   --spacing-section-desktop: 96px;
   --container-content: 1200px;
+  --container-desk: 560px;
+  --container-desk-compact: 760px;
+  --container-hero-text: 58%;
+
+  --aspect-desk: 1840 / 925;
+  --aspect-desk-compact: 1000 / 620;
+}
+
+/* Desk */
+@utility desk-scene {
+  container-type: size;
+}
+
+@utility text-vertical {
+  writing-mode: vertical-rl;
+}
+
+@utility spine-text {
+  font-size: var(--spine-c);
+
+  @media (width >= 80rem) {
+    font-size: var(--spine-w);
+  }
+}
+
+@utility lamp-glow {
+  top: 46%;
+  left: 50%;
+  width: 360%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 9999px;
+  clip-path: inset(0 0 27.8% 0);
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--butter) 90%, transparent),
+    color-mix(in srgb, var(--butter) 40%, transparent) 45%,
+    transparent
+  );
 }
 
 /* Base */
