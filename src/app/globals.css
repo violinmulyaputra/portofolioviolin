@@ -104,7 +104,46 @@
   --container-hero-text: 58%;
 
   --aspect-desk: 1840 / 925;
-  --aspect-desk-compact: 1000 / 620;
+  --aspect-desk-compact: 1000 / 400;
+  --aspect-frame-wall: 1.1;
+}
+
+/* Hero */
+@utility hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(120px, 38vw, 300px);
+  grid-template-areas:
+    "text wall"
+    "cta cta"
+    "desk desk";
+  column-gap: 16px;
+  align-items: start;
+
+  @media (width >= 48rem) {
+    column-gap: 32px;
+  }
+
+  @media (width >= 80rem) {
+    display: block;
+    position: relative;
+    aspect-ratio: var(--aspect-desk);
+  }
+}
+
+@utility area-text {
+  grid-area: text;
+}
+
+@utility area-wall {
+  grid-area: wall;
+}
+
+@utility area-cta {
+  grid-area: cta;
+}
+
+@utility area-desk {
+  grid-area: desk;
 }
 
 /* Desk */

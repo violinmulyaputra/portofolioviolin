@@ -40,7 +40,7 @@ export type BookData = {
 };
 
 // Scene
-const COMPACT_SCENE = { width: 1000, height: 620 };
+const COMPACT_SCENE = { width: 1000, height: 400 };
 const WIDE_SCENE = { width: 1840, height: 925 };
 const COMPACT_SCENE_MAX_PX = 760;
 const WIDE_SCENE_MAX_PX = 1136;
@@ -137,44 +137,89 @@ export const BOOKS: readonly BookData[] = [
     href: "/about",
     image: ILLUSTRATIONS.bookAbout,
     spine: { centerX: 49.3, centerY: 52.4, length: 61.8, thickness: 34.4, rotate: 17, orientation: "vertical" },
-    placement: { compact: { left: 1, height: 15.72 }, wide: { left: 0.27, height: 14.05 } },
+    placement: { compact: { left: 1, height: 24.38 }, wide: { left: 0.27, height: 14.05 } },
   },
   {
     key: "projects",
     href: "/projects",
     image: ILLUSTRATIONS.bookProjects,
     spine: { centerX: 49.8, centerY: 50.7, length: 59.2, thickness: 66.6, rotate: 0, orientation: "vertical" },
-    placement: { compact: { left: 6, height: 26.94 }, wide: { left: 3.91, height: 24.11 } },
+    placement: { compact: { left: 6, height: 41.75 }, wide: { left: 3.91, height: 24.11 } },
   },
   {
     key: "experiences",
     href: "/experiences",
     image: ILLUSTRATIONS.bookExperiences,
     spine: { centerX: 49.1, centerY: 51.2, length: 65.3, thickness: 63.3, rotate: 0, orientation: "vertical" },
-    placement: { compact: { left: 10, height: 32.18 }, wide: { left: 6.79, height: 28.76 } },
+    placement: { compact: { left: 10, height: 49.88 }, wide: { left: 6.79, height: 28.76 } },
   },
   {
     key: "cv",
     href: "/cv",
     image: ILLUSTRATIONS.bookCv,
     spine: { centerX: 49.9, centerY: 52.3, length: 50.8, thickness: 70.6, rotate: 0, orientation: "horizontal" },
-    placement: { compact: { left: 13.9, height: 17.09 }, wide: { left: 9.62, height: 15.24 } },
+    placement: { compact: { left: 13.9, height: 26.5 }, wide: { left: 9.62, height: 15.24 } },
   },
   {
     key: "contact",
     href: "/contact",
     image: ILLUSTRATIONS.bookContact,
     spine: { centerX: 49.1, centerY: 56.1, length: 78.9, thickness: 67.5, rotate: 0, orientation: "vertical" },
-    placement: { compact: { left: 19.2, height: 22.98 }, wide: { left: 13.48, height: 20.54 } },
+    placement: { compact: { left: 19.2, height: 35.63 }, wide: { left: 13.48, height: 20.54 } },
   },
 ];
 
 // Frames
-export const FRAME_PLACEMENTS: Record<FrameId, DeskPlacement> = {
-  a: { compact: { left: 30, top: 15.16, height: 30.16 }, wide: { left: 62.5, top: 24.43, height: 25.3 } },
-  b: { compact: { left: 5, top: 6.94, height: 32.58 }, wide: { left: 75.98, top: 3.24, height: 25.95 } },
-  c: { compact: { left: 54, top: 5.81, height: 35.97 }, wide: { left: 75.82, top: 34.59, height: 26.49 } },
+export const FRAME_WALL = {
+  left: 62.5,
+  top: 3.24,
+  width: 32,
+  height: 57.86,
+  ratio: 1.1,
+  widePx: 364,
+  compactMaxPx: 300,
 };
+
+export const FRAME_CLASS =
+  "absolute top-(--ft) left-(--fl) h-(--fh) aspect-(--ratio)";
+
+export const FRAME_POSITIONS: Record<FrameId, Placement> = {
+  a: { left: 0, top: 36.62, height: 43.73 },
+  b: { left: 42.13, top: 0, height: 44.85 },
+  c: { left: 41.63, top: 54.18, height: 45.78 },
+};
+
+export function frameWallStyle(): CSSProperties {
+  return {
+    "--wall-left": `${FRAME_WALL.left}%`,
+    "--wall-top": `${FRAME_WALL.top}%`,
+    "--wall-width": `${FRAME_WALL.width}%`,
+    "--wall-height": `${FRAME_WALL.height}%`,
+  } as CSSProperties;
+}
+
+export function frameStyle(position: Placement, image: Illustration) {
+  return {
+    "--fl": `${position.left}%`,
+    "--ft": `${position.top ?? 0}%`,
+    "--fh": `${position.height}%`,
+    "--ratio": `${image.width} / ${image.height}`,
+  } as CSSProperties;
+}
+
+export function frameSizes(
+  position: Placement,
+  image: Illustration,
+  fraction = 1,
+) {
+  const share =
+    ((position.height / 100) / FRAME_WALL.ratio) *
+    (image.width / image.height) *
+    fraction;
+  const wide = Math.ceil(share * FRAME_WALL.widePx);
+  const compact = Math.ceil(share * FRAME_WALL.compactMaxPx);
+  return `(min-width: 1280px) ${wide}px, ${compact}px`;
+}
 
 // Sticky notes
 export const STICKY_NOTES: readonly {
@@ -185,23 +230,23 @@ export const STICKY_NOTES: readonly {
   {
     key: "instagram",
     image: ILLUSTRATIONS.stickyInstagram,
-    placement: { compact: { left: 50, top: 48.39, height: 10.48 }, wide: { left: 45.49, top: 69.41, height: 9.3 } },
+    placement: { compact: { left: 50, top: 20, height: 16.25 }, wide: { left: 45.49, top: 69.41, height: 9.3 } },
   },
   {
     key: "github",
     image: ILLUSTRATIONS.stickyGithub,
-    placement: { compact: { left: 57.5, top: 43.06, height: 10.48 }, wide: { left: 52.17, top: 66.16, height: 9.73 } },
+    placement: { compact: { left: 57.5, top: 11.75, height: 16.25 }, wide: { left: 52.17, top: 66.16, height: 9.73 } },
   },
   {
     key: "linkedin",
     image: ILLUSTRATIONS.stickyLinkedin,
-    placement: { compact: { left: 53.5, top: 61.13, height: 10.48 }, wide: { left: 50.43, top: 79.46, height: 9.4 } },
+    placement: { compact: { left: 53.5, top: 39.75, height: 16.25 }, wide: { left: 50.43, top: 79.46, height: 9.4 } },
   },
 ];
 
 // Lamp and decorations
 export const LAMP_PLACEMENT: DeskPlacement = {
-  compact: { left: 82, height: 32.1 },
+  compact: { left: 82, height: 49.75 },
   wide: { left: 88.32, height: 28.65 },
 };
 
@@ -213,21 +258,21 @@ export const DECORATIONS: readonly {
   {
     key: "laptop",
     image: ILLUSTRATIONS.laptop,
-    placement: { compact: { left: 25.5, height: 27.58 }, wide: { left: 22.01, height: 24.65 } },
+    placement: { compact: { left: 25.5, height: 42.75 }, wide: { left: 22.01, height: 24.65 } },
   },
   {
     key: "mug",
     image: ILLUSTRATIONS.mug,
-    placement: { compact: { left: 49.5, height: 8.95 }, wide: { left: 39.95, height: 8 } },
+    placement: { compact: { left: 49.5, height: 13.88 }, wide: { left: 39.95, height: 8 } },
   },
   {
     key: "stationery",
     image: ILLUSTRATIONS.stationery,
-    placement: { compact: { left: 60, height: 19.03 }, wide: { left: 64.13, height: 16.97 } },
+    placement: { compact: { left: 60, height: 29.5 }, wide: { left: 64.13, height: 16.97 } },
   },
   {
     key: "plant",
     image: ILLUSTRATIONS.plant,
-    placement: { compact: { left: 68.5, height: 29.28 }, wide: { left: 77.45, height: 26.16 } },
+    placement: { compact: { left: 68.5, height: 45.38 }, wide: { left: 77.45, height: 26.16 } },
   },
 ];

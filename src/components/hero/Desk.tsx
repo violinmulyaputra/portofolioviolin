@@ -12,10 +12,8 @@ import {
   placementStyle,
   STICKY_NOTES,
 } from "@/components/hero/desk-layout";
-import { Frame } from "@/components/hero/Frame";
 import { Lamp } from "@/components/hero/Lamp";
 import { StickyNote } from "@/components/hero/StickyNote";
-import { FRAMES } from "@/data/frames";
 import { SOCIALS } from "@/data/socials";
 
 export function Desk() {
@@ -58,10 +56,6 @@ export function Desk() {
         })}
 
         <Lamp />
-
-        {Object.values(FRAMES).map((frame) => (
-          <Frame key={frame.id} frame={frame} />
-        ))}
       </div>
     </MotionConfig>
   );
