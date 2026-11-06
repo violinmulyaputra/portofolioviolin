@@ -126,7 +126,9 @@
     "back": "Back to home"
   },
   "StringLights": {
-    "turnOn": "Turn on the string lights",
-    "turnOff": "Turn off the string lights"
+    "leftOn": "Turn on the left string lights",
+    "leftOff": "Turn off the left string lights",
+    "rightOn": "Turn on the right string lights",
+    "rightOff": "Turn off the right string lights"
   }
 }

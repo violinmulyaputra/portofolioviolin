@@ -13,31 +13,64 @@ import {
 import { INSTANT, SHORT_SPRING } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
-const COPIES = ["string-lights-copy-left", "string-lights-copy-right"];
+const SIDES = [
+  {
+    key: "left",
+    copyClass: "string-lights-copy-left",
+    hitClass: "left-0",
+    labels: { on: "leftOff", off: "leftOn" },
+  },
+  {
+    key: "right",
+    copyClass: "string-lights-copy-right",
+    hitClass: "right-0",
+    labels: { on: "rightOff", off: "rightOn" },
+  },
+] as const;
 
-type LightsImage = (typeof LIGHTS_IMAGES)[keyof typeof LIGHTS_IMAGES];
+type Side = (typeof SIDES)[number]["key"];
 
-function LightsCopies({
-  image,
-  preloadFirst = false,
-}: {
-  image: LightsImage;
-  preloadFirst?: boolean;
-}) {
-  return COPIES.map((copyClass, index) => (
-    <Image
-      key={copyClass}
-      src={image.src}
-      width={image.width}
-      height={image.height}
-      sizes={STRING_LIGHTS_SIZES}
-      alt=""
-      aria-hidden="true"
-      draggable={false}
-      preload={preloadFirst && index === 0}
-      className={copyClass}
-    />
-  ));
+type LightsCopyProps = {
+  copyClass: string;
+  lit: boolean;
+  preload: boolean;
+};
+
+function LightsCopy({ copyClass, lit, preload }: LightsCopyProps) {
+  const prefersReducedMotion = useReducedMotion();
+  const imageProps = {
+    sizes: STRING_LIGHTS_SIZES,
+    "aria-hidden": true,
+    draggable: false,
+    className: "absolute inset-0 size-full",
+  };
+
+  return (
+    <span aria-hidden="true" className={cn(copyClass, "pointer-events-none")}>
+      <Image
+        {...imageProps}
+        alt=""
+        src={LIGHTS_IMAGES.off.src}
+        width={LIGHTS_IMAGES.off.width}
+        height={LIGHTS_IMAGES.off.height}
+        preload={preload}
+      />
+      <motion.span
+        className="absolute inset-0"
+        initial={false}
+        animate={{ opacity: lit ? 1 : 0 }}
+        transition={prefersReducedMotion ? INSTANT : SHORT_SPRING}
+      >
+        <Image
+          {...imageProps}
+          alt=""
+          src={LIGHTS_IMAGES.on.src}
+          width={LIGHTS_IMAGES.on.width}
+          height={LIGHTS_IMAGES.on.height}
+        />
+      </motion.span>
+    </span>
+  );
 }
 
 type StringLightsProps = {
@@ -46,32 +79,41 @@ type StringLightsProps = {
 
 export function StringLights({ className }: StringLightsProps) {
   const t = useTranslations("StringLights");
-  const [lit, setLit] = useState(false);
-  const prefersReducedMotion = useReducedMotion();
+  const [lit, setLit] = useState<Record<Side, boolean>>({
+    left: false,
+    right: false,
+  });
 
   return (
-    <button
-      type="button"
-      aria-pressed={lit}
-      aria-label={lit ? t("turnOff") : t("turnOn")}
-      onClick={() => setLit((on) => !on)}
-      className={cn("string-lights cursor-pointer select-none", className)}
+    <div
+      className={cn("string-lights select-none", className)}
       style={stringLightsVars()}
     >
       <span className="string-lights-track block">
-        <span aria-hidden="true" className="absolute inset-0">
-          <LightsCopies image={LIGHTS_IMAGES.off} preloadFirst />
-        </span>
-        <motion.span
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          initial={false}
-          animate={{ opacity: lit ? 1 : 0 }}
-          transition={prefersReducedMotion ? INSTANT : SHORT_SPRING}
-        >
-          <LightsCopies image={LIGHTS_IMAGES.on} />
-        </motion.span>
+        {SIDES.map((side, index) => (
+          <LightsCopy
+            key={side.key}
+            copyClass={side.copyClass}
+            lit={lit[side.key]}
+            preload={index === 0}
+          />
+        ))}
       </span>
-    </button>
+      {SIDES.map((side) => (
+        <button
+          key={side.key}
+          type="button"
+          aria-pressed={lit[side.key]}
+          aria-label={t(lit[side.key] ? side.labels.on : side.labels.off)}
+          onClick={() =>
+            setLit((current) => ({
+              ...current,
+              [side.key]: !current[side.key],
+            }))
+          }
+          className={cn("string-lights-hit", side.hitClass)}
+        />
+      ))}
+    </div>
   );
 }

@@ -126,7 +126,9 @@
     "back": "Kembali ke beranda"
   },
   "StringLights": {
-    "turnOn": "Nyalakan lampu hias",
-    "turnOff": "Matikan lampu hias"
+    "leftOn": "Nyalakan lampu hias kiri",
+    "leftOff": "Matikan lampu hias kiri",
+    "rightOn": "Nyalakan lampu hias kanan",
+    "rightOff": "Matikan lampu hias kanan"
   }
 }
