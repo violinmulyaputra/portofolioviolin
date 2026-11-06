@@ -12,7 +12,7 @@ export function HomeIcon({ className }: HomeIconProps) {
     >
       <path
         d="M14.6 4.6a2 2 0 0 1 2.8 0l10.3 9.6c.97.9.33 2.6-1 2.6H25v9.2a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-9.2H5.3c-1.33 0-1.97-1.7-1-2.6z"
-        className="fill-rose"
+        className="fill-current"
       />
       <rect
         x="13.5"

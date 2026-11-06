@@ -14,6 +14,7 @@
   --matcha: #7e8d55;
   --rose: #c87988;
   --pink: #f0aab5;
+  --pink-hover: #eb909e;
   --berry: #b35a72;
   --butter: #ffe59a;
   --sky: #a9cbef;
@@ -49,6 +50,7 @@
   --color-matcha: var(--matcha);
   --color-rose: var(--rose);
   --color-pink: var(--pink);
+  --color-pink-hover: var(--pink-hover);
   --color-pink-foreground: var(--pink-foreground);
   --color-berry: var(--berry);
   --color-butter: var(--butter);
@@ -226,6 +228,26 @@
 }
 
 /* Utilities */
+@utility nav-hover-text {
+  transition: color 150ms ease;
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--berry);
+    }
+  }
+}
+
+@utility nav-hover-fill {
+  transition: background-color 150ms ease;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--pink-hover);
+    }
+  }
+}
+
 @utility underline-active {
   text-decoration-line: underline;
   text-decoration-color: var(--rose);

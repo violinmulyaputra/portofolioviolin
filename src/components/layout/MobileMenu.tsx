@@ -37,7 +37,11 @@ export function MobileMenu() {
         aria-controls={panelId}
         aria-label={isOpen ? t("closeMenu") : t("openMenu")}
         onClick={() => setIsOpen((open) => !open)}
-        className={buttonVariants({ variant: "secondary", size: "icon" })}
+        className={buttonVariants({
+          variant: "secondary",
+          size: "icon",
+          effect: "color",
+        })}
       >
         <MenuIcon isOpen={isOpen} className="size-6" />
       </button>
@@ -58,6 +62,7 @@ export function MobileMenu() {
             className={buttonVariants({
               variant: "secondary",
               size: "hero",
+              effect: "color",
               className: "mt-4",
             })}
           >

@@ -18,7 +18,7 @@ export function Navbar() {
           <Link
             href="/"
             aria-label={t("home")}
-            className="inline-flex size-12 items-center justify-center rounded-pill hover:bg-blush"
+            className="nav-hover-text inline-flex size-12 items-center justify-center rounded-pill text-rose"
           >
             <HomeIcon className="size-9" />
           </Link>
@@ -35,7 +35,7 @@ export function Navbar() {
           <Link
             href="/contact"
             className={cn(
-              buttonVariants({ variant: "secondary", size: "sm" }),
+              buttonVariants({ variant: "secondary", size: "sm", effect: "color" }),
               "hidden lg:inline-flex",
             )}
           >
