@@ -26,7 +26,7 @@ export function PageShell({
       className={cn(
         "flex-1 outline-none",
         leading
-          ? "pt-2 pb-section md:pt-4 md:pb-section-desktop"
+          ? "pt-2 pb-section md:pb-section-desktop lg:pt-1"
           : "py-section md:py-section-desktop",
       )}
     >
