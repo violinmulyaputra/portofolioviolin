@@ -3,26 +3,27 @@
 
 /* Tokens */
 :root {
-  --background: #fffcf7;
-  --sand: #fbf5ec;
+  --background: #fff5f5;
+  --sand: #f8f1de;
   --card: #ffffff;
-  --foreground: #3f3a33;
-  --muted-foreground: #6b6359;
-  --primary: #4a6640;
-  --blush: #f9c6d3;
-  --berry: #c23b62;
-  --matcha-soft: #dde8cc;
+  --foreground: #4e3f36;
+  --muted-foreground: #796858;
+  --primary: #6f7a4e;
+  --matcha: #a2a175;
+  --rose: #e49ea8;
+  --blush: #e7c3c3;
+  --berry: #b84c69;
   --butter: #ffe59a;
   --sky: #a9cbef;
   --peach: #ffd3b6;
-  --line: #efe6d6;
+  --line: #f0dcdc;
   --white: #ffffff;
 
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
   --primary-foreground: var(--white);
-  --secondary: var(--blush);
+  --secondary: var(--rose);
   --secondary-foreground: var(--foreground);
   --muted: var(--sand);
   --accent: var(--sand);
@@ -46,9 +47,10 @@
   --color-foreground: var(--foreground);
   --color-muted-foreground: var(--muted-foreground);
   --color-primary: var(--primary);
+  --color-matcha: var(--matcha);
+  --color-rose: var(--rose);
   --color-blush: var(--blush);
   --color-berry: var(--berry);
-  --color-matcha-soft: var(--matcha-soft);
   --color-white: var(--white);
   --color-butter: var(--butter);
   --color-sky: var(--sky);
@@ -213,7 +215,7 @@
 }
 
 @utility underline-hover {
-  text-decoration-color: var(--blush);
+  text-decoration-color: var(--rose);
   text-decoration-thickness: 3px;
   text-underline-offset: 8px;
 

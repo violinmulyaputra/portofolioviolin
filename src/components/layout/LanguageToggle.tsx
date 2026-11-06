@@ -32,7 +32,7 @@ function ToggleView({ pathname }: ToggleViewProps) {
             aria-current={isActive ? "true" : undefined}
             className={cn(
               "inline-flex h-9 min-w-11 items-center justify-center rounded-pill px-3 text-base font-bold uppercase",
-              isActive ? "bg-blush" : "hover:bg-sand",
+              isActive ? "bg-rose" : "hover:bg-blush",
             )}
           >
             {locale}
