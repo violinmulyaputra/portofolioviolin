@@ -27,7 +27,7 @@ export default function CvPage() {
       intro={t("intro")}
       centered
       titleClassName="font-semibold text-rose"
-      leading={<StringLights className="mb-4 md:mb-6" />}
+      leading={<StringLights className="mb-3 md:mb-4" />}
     >
       {/* Actions */}
       <div className="mt-8 flex flex-col items-center gap-3 md:flex-row md:items-start md:justify-center md:gap-4">

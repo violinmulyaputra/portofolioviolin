@@ -13,17 +13,37 @@ const LIGHTS = {
   on: { src: "/illustrations/lights-on.webp", width: 2167, height: 726 },
 };
 
-const VISIBLE_BAND = { top: 100, height: 500 };
+const SIZES = "(min-width: 1432px) 780px, 55vw";
 
-const FRAME_STYLE = {
-  aspectRatio: `${LIGHTS.off.width} / ${VISIBLE_BAND.height}`,
-};
+const COPIES = ["string-lights-copy-left", "string-lights-copy-right"];
 
-const BAND_STYLE = {
-  top: `${(-VISIBLE_BAND.top / VISIBLE_BAND.height) * 100}%`,
-};
+type LightsImage = (typeof LIGHTS)[keyof typeof LIGHTS];
 
-const SIZES = "(min-width: 744px) 680px, calc(100vw - 32px)";
+function LightsCopies({
+  image,
+  preloadFirst = false,
+}: {
+  image: LightsImage;
+  preloadFirst?: boolean;
+}) {
+  return COPIES.map((copyClass, index) => (
+    <span key={copyClass} className={copyClass}>
+      <span className="string-lights-band">
+        <Image
+          src={image.src}
+          width={image.width}
+          height={image.height}
+          sizes={SIZES}
+          alt=""
+          aria-hidden="true"
+          draggable={false}
+          preload={preloadFirst && index === 0}
+          className="h-auto w-full"
+        />
+      </span>
+    </span>
+  ));
+}
 
 type StringLightsProps = {
   className?: string;
@@ -40,23 +60,12 @@ export function StringLights({ className }: StringLightsProps) {
       aria-pressed={lit}
       aria-label={lit ? t("turnOff") : t("turnOn")}
       onClick={() => setLit((on) => !on)}
-      className={cn(
-        "relative mx-auto block w-full max-w-string-lights cursor-pointer overflow-hidden rounded-card select-none",
-        className,
-      )}
-      style={FRAME_STYLE}
+      className={cn("string-lights cursor-pointer select-none", className)}
     >
-      <span className="absolute inset-x-0" style={BAND_STYLE}>
-        <Image
-          src={LIGHTS.off.src}
-          width={LIGHTS.off.width}
-          height={LIGHTS.off.height}
-          sizes={SIZES}
-          alt=""
-          preload
-          draggable={false}
-          className="h-auto w-full"
-        />
+      <span className="string-lights-track block">
+        <span aria-hidden="true" className="absolute inset-0">
+          <LightsCopies image={LIGHTS.off} preloadFirst />
+        </span>
         <motion.span
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
@@ -64,16 +73,7 @@ export function StringLights({ className }: StringLightsProps) {
           animate={{ opacity: lit ? 1 : 0 }}
           transition={prefersReducedMotion ? INSTANT : SHORT_SPRING}
         >
-          <Image
-            src={LIGHTS.on.src}
-            width={LIGHTS.on.width}
-            height={LIGHTS.on.height}
-            sizes={SIZES}
-            alt=""
-            loading="eager"
-            draggable={false}
-            className="size-full"
-          />
+          <LightsCopies image={LIGHTS.on} />
         </motion.span>
       </span>
     </button>

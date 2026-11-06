@@ -112,7 +112,7 @@
   --container-desk-compact: 760px;
   --container-hero-text: 58%;
   --container-frame-wall-mobile: 9.5rem;
-  --container-string-lights: 680px;
+  --container-string-lights: 780px;
 
   --aspect-desk: 1840 / 925;
   --aspect-desk-compact: 1000 / 360;
@@ -147,6 +147,45 @@
     position: relative;
     aspect-ratio: var(--aspect-desk);
   }
+}
+
+@utility string-lights {
+  display: block;
+  width: 100%;
+  container-type: inline-size;
+  overflow: clip;
+  &:focus-visible {
+    outline-offset: -3px;
+  }
+}
+
+@utility string-lights-track {
+  --lights-copy: min(54.5cqw, var(--container-string-lights));
+  --lights-overlap: calc(var(--lights-copy) * 0.046);
+  position: relative;
+  height: calc(var(--lights-copy) * 500 / 2167);
+}
+
+@utility string-lights-copy-left {
+  position: absolute;
+  inset-block: 0;
+  right: calc(50% - var(--lights-overlap));
+  width: var(--lights-copy);
+  overflow: clip;
+}
+
+@utility string-lights-copy-right {
+  position: absolute;
+  inset-block: 0;
+  left: calc(50% - var(--lights-overlap));
+  width: var(--lights-copy);
+  overflow: clip;
+}
+
+@utility string-lights-band {
+  position: absolute;
+  inset-inline: 0;
+  top: -20%;
 }
 
 @utility h-preview {

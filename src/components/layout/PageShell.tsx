@@ -24,28 +24,29 @@ export function PageShell({
       id="main-content"
       tabIndex={-1}
       className={cn(
-        "container-content flex-1 outline-none",
+        "flex-1 outline-none",
         leading
-          ? "pt-4 pb-section md:pt-6 md:pb-section-desktop"
+          ? "pt-2 pb-section md:pt-4 md:pb-section-desktop"
           : "py-section md:py-section-desktop",
-        centered && "text-center",
       )}
     >
       {leading}
-      <h1 className={`font-display text-section ${titleClassName}`}>
-        {title}
-      </h1>
-      {intro && (
-        <p
-          className={cn(
-            "mt-4 max-w-2xl text-lead text-muted-foreground",
-            centered && "mx-auto",
-          )}
-        >
-          {intro}
-        </p>
-      )}
-      {children}
+      <div className={cn("container-content", centered && "text-center")}>
+        <h1 className={`font-display text-section ${titleClassName}`}>
+          {title}
+        </h1>
+        {intro && (
+          <p
+            className={cn(
+              "mt-4 max-w-2xl text-lead text-muted-foreground",
+              centered && "mx-auto",
+            )}
+          >
+            {intro}
+          </p>
+        )}
+        {children}
+      </div>
     </main>
   );
 }
