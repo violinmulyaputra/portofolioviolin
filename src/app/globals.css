@@ -126,8 +126,8 @@
   clip-path: inset(0 0 27.8% 0);
   background: radial-gradient(
     closest-side,
-    color-mix(in srgb, var(--butter) 90%, transparent),
-    color-mix(in srgb, var(--butter) 40%, transparent) 45%,
+    color-mix(in srgb, var(--butter) 45%, transparent),
+    color-mix(in srgb, var(--butter) 15%, transparent) 45%,
     transparent
   );
 }
