@@ -28,10 +28,10 @@
     "newTab": "terbuka di tab baru"
   },
   "Hero": {
-    "greeting": "Halo, perkenalkan saya",
+    "greeting": "Halo, saya",
     "name": "Violin Mulya!",
     "tagline": "Seorang mahasiswa Teknologi Informasi Universitas Gadjah Mada yang tertarik pada pengembangan perangkat lunak, analisis data, IoT, dan desain.",
-    "cta": "Yuk, kenalan lebih dekat",
+    "cta": "Yuk, kenal lebih dekat",
     "desk": "Meja",
     "books": {
       "about": {
