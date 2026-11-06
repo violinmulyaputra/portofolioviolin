@@ -145,6 +145,10 @@
   }
 }
 
+@utility h-preview {
+  height: 80vh;
+}
+
 @utility contain-inline {
   contain: inline-size;
 }

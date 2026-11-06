@@ -105,7 +105,16 @@
     "title": "Detail Pengalaman"
   },
   "CvPage": {
-    "title": "CV"
+    "title": "CV",
+    "metaDescription": "Lihat dan unduh CV Violin Mulya Putra dalam format PDF, berbahasa Indonesia atau Inggris.",
+    "intro": "Ringkasan pendidikan, pengalaman, proyek, dan keterampilan saya, siap diunduh dalam format PDF.",
+    "download": "Unduh CV (PDF)",
+    "openNewTab": "Buka di tab baru",
+    "openNewTabHint": ", CV PDF",
+    "fileInfo": "PDF, {size, number} KB",
+    "previewTitle": "Pratinjau CV Violin Mulya Putra (PDF)",
+    "previewFallback": "Pratinjau tidak dapat dimuat di peramban ini.",
+    "previewFallbackLink": "Unduh CV (PDF)"
   },
   "ContactPage": {
     "title": "Kontak"
