@@ -123,7 +123,7 @@
     "text wall"
     "desk desk";
   column-gap: 16px;
-  align-items: center;
+  align-items: start;
 
   @media (width >= 48rem) {
     grid-template-columns: minmax(0, 1fr) clamp(120px, 38vw, 300px);
@@ -156,7 +156,11 @@
 }
 
 @utility area-wall {
-  grid-area: wall;
+  grid-area: 1 / 2 / 3 / 3;
+
+  @media (width >= 48rem) {
+    grid-area: wall;
+  }
 }
 
 @utility area-desk {
