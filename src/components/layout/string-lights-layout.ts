@@ -12,7 +12,7 @@ export const STRING_LIGHTS = {
   rightDropPercent: 0,
   leftRotateDeg: -1.5,
   rightRotateDeg: 1.5,
-  bandTopRow: 80,
+  bandTopRow: 90,
   bandBottomRow: 578,
 };
 
