@@ -124,5 +124,9 @@
   "NotFoundPage": {
     "title": "Halaman tidak ditemukan",
     "back": "Kembali ke beranda"
+  },
+  "StringLights": {
+    "turnOn": "Nyalakan lampu hias",
+    "turnOff": "Matikan lampu hias"
   }
 }

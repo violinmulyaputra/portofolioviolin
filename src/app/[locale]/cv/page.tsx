@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 
 import { ArrowIcon } from "@/components/layout/ArrowIcon";
 import { PageShell } from "@/components/layout/PageShell";
+import { StringLights } from "@/components/layout/StringLights";
 import { buttonVariants } from "@/components/ui/button";
 import { CV_FILES } from "@/data/cv";
 import { publicFileSizeKb } from "@/lib/file-size";
@@ -26,6 +27,7 @@ export default function CvPage() {
       intro={t("intro")}
       centered
       titleClassName="font-semibold text-rose"
+      leading={<StringLights className="mb-4 md:mb-6" />}
     >
       {/* Actions */}
       <div className="mt-8 flex flex-col items-center gap-3 md:flex-row md:items-start md:justify-center md:gap-4">

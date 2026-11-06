@@ -7,6 +7,7 @@ type PageShellProps = {
   intro?: string;
   centered?: boolean;
   titleClassName?: string;
+  leading?: ReactNode;
   children?: ReactNode;
 };
 
@@ -15,6 +16,7 @@ export function PageShell({
   intro,
   centered = false,
   titleClassName = "font-medium",
+  leading,
   children,
 }: PageShellProps) {
   return (
@@ -22,10 +24,14 @@ export function PageShell({
       id="main-content"
       tabIndex={-1}
       className={cn(
-        "container-content flex-1 py-section outline-none md:py-section-desktop",
+        "container-content flex-1 outline-none",
+        leading
+          ? "pt-4 pb-section md:pt-6 md:pb-section-desktop"
+          : "py-section md:py-section-desktop",
         centered && "text-center",
       )}
     >
+      {leading}
       <h1 className={`font-display text-section ${titleClassName}`}>
         {title}
       </h1>

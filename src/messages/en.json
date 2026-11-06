@@ -124,5 +124,9 @@
   "NotFoundPage": {
     "title": "Page not found",
     "back": "Back to home"
+  },
+  "StringLights": {
+    "turnOn": "Turn on the string lights",
+    "turnOff": "Turn off the string lights"
   }
 }
