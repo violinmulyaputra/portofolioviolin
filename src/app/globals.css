@@ -9,7 +9,7 @@
   --foreground: #5e4f46;
   --muted-foreground: #7a6a5e;
   --primary: #9aa671;
-  --primary-foreground: #3b322c;
+  --primary-foreground: #2b231e;
   --matcha: #7e8d55;
   --rose: #c87988;
   --pink: #f0aab5;
@@ -71,6 +71,8 @@
   --font-sans: var(--font-jakarta);
   --font-hand: var(--font-gaegu);
 
+  --text-display-mobile: clamp(1.75rem, 8vw, 2.25rem);
+  --text-display-mobile--line-height: 1.1;
   --text-display: clamp(2.25rem, 5.5vw, 4rem);
   --text-display--line-height: 1.05;
   --text-section: clamp(1.75rem, 4vw, 2.5rem);
@@ -79,6 +81,9 @@
   --text-greeting--line-height: 1.2;
   --text-lead: clamp(1rem, 1.5vw, 1.25rem);
   --text-lead--line-height: 1.6;
+  --text-lead-mobile: 0.875rem;
+  --text-lead-mobile--line-height: 1.6;
+  --text-button-sm: 0.9375rem;
 
 }
 
@@ -102,22 +107,25 @@
   --container-hero-text: 58%;
 
   --aspect-desk: 1840 / 925;
-  --aspect-desk-compact: 1000 / 400;
+  --aspect-desk-compact: 1000 / 360;
   --aspect-frame-wall: 1.185;
+  --aspect-frame-wall-mobile: 100 / 169;
 }
 
 /* Hero */
 @utility hero-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(120px, 38vw, 300px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-areas:
     "text wall"
     "cta cta"
     "desk desk";
   column-gap: 16px;
-  align-items: start;
+  align-items: center;
 
   @media (width >= 48rem) {
+    grid-template-columns: minmax(0, 1fr) clamp(120px, 38vw, 300px);
+    align-items: start;
     column-gap: 32px;
   }
 
