@@ -1,0 +1,58 @@
+{
+  "Metadata": {
+    "siteName": "Violin Mulya",
+    "description": "Portfolio of Violin Mulya, an Information Technology student at Universitas Gadjah Mada."
+  },
+  "Nav": {
+    "skipToContent": "Skip to content",
+    "label": "Main",
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "experiences": "Experiences",
+    "cv": "CV",
+    "contact": "Contact Me",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menu": "Menu"
+  },
+  "LanguageToggle": {
+    "label": "Language",
+    "en": "English",
+    "id": "Bahasa Indonesia"
+  },
+  "Footer": {
+    "copyright": "© 2026 Violin Mulya",
+    "socials": "Social links",
+    "email": "Email",
+    "newTab": "opens in a new tab"
+  },
+  "HomePage": {
+    "title": "Violin Mulya"
+  },
+  "AboutPage": {
+    "title": "About Me"
+  },
+  "ProjectsPage": {
+    "title": "Projects"
+  },
+  "ProjectDetailPage": {
+    "title": "Project Details"
+  },
+  "ExperiencesPage": {
+    "title": "Experiences"
+  },
+  "ExperienceDetailPage": {
+    "title": "Experience Details"
+  },
+  "CvPage": {
+    "title": "CV"
+  },
+  "ContactPage": {
+    "title": "Contact"
+  },
+  "NotFoundPage": {
+    "title": "Page not found",
+    "back": "Back to home"
+  }
+}

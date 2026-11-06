@@ -1,0 +1,58 @@
+{
+  "Metadata": {
+    "siteName": "Violin Mulya",
+    "description": "Portofolio Violin Mulya, mahasiswa Teknologi Informasi Universitas Gadjah Mada."
+  },
+  "Nav": {
+    "skipToContent": "Langsung ke konten",
+    "label": "Utama",
+    "home": "Beranda",
+    "about": "Tentang",
+    "projects": "Proyek",
+    "experiences": "Pengalaman",
+    "cv": "CV",
+    "contact": "Hubungi Saya",
+    "openMenu": "Buka menu",
+    "closeMenu": "Tutup menu",
+    "menu": "Menu"
+  },
+  "LanguageToggle": {
+    "label": "Bahasa",
+    "en": "English",
+    "id": "Bahasa Indonesia"
+  },
+  "Footer": {
+    "copyright": "© 2026 Violin Mulya",
+    "socials": "Tautan sosial",
+    "email": "Email",
+    "newTab": "terbuka di tab baru"
+  },
+  "HomePage": {
+    "title": "Violin Mulya"
+  },
+  "AboutPage": {
+    "title": "Tentang Saya"
+  },
+  "ProjectsPage": {
+    "title": "Proyek"
+  },
+  "ProjectDetailPage": {
+    "title": "Detail Proyek"
+  },
+  "ExperiencesPage": {
+    "title": "Pengalaman"
+  },
+  "ExperienceDetailPage": {
+    "title": "Detail Pengalaman"
+  },
+  "CvPage": {
+    "title": "CV"
+  },
+  "ContactPage": {
+    "title": "Kontak"
+  },
+  "NotFoundPage": {
+    "title": "Halaman tidak ditemukan",
+    "back": "Kembali ke beranda"
+  }
+}
