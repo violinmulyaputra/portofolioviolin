@@ -179,16 +179,16 @@ export const FRAME_WALL = {
   widePx: 392,
   compactMaxPx: 300,
   mobileMaxPx: 215,
-  mobileRatio: 100 / 169,
+  mobileRatio: 100 / 131,
 };
 
 export const FRAME_CLASS =
   "absolute top-(--ftm) left-(--flm) h-(--fhm) aspect-(--ratio) md:top-(--ft) md:left-(--fl) md:h-(--fh)";
 
 export const FRAME_POSITIONS_MOBILE: Record<FrameId, Placement> = {
-  a: { left: 0, top: 34.32, height: 30.77 },
-  b: { left: 48, top: 0, height: 30.77 },
-  c: { left: 26, top: 68.64, height: 31.18 },
+  a: { left: 0, top: 19.85, height: 35.88 },
+  b: { left: 53, top: 0, height: 35.88 },
+  c: { left: 26, top: 59.54, height: 40.23 },
 };
 
 export const FRAME_POSITIONS: Record<FrameId, Placement> = {
