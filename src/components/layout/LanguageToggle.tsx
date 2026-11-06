@@ -19,7 +19,7 @@ function ToggleView({ pathname }: ToggleViewProps) {
     <div
       role="group"
       aria-label={t("label")}
-      className="inline-flex items-center rounded-pill bg-blush p-1"
+      className="inline-flex items-center rounded-pill bg-blush md:p-1"
     >
       {routing.locales.map((locale) => {
         const isActive = locale === currentLocale;
@@ -31,7 +31,7 @@ function ToggleView({ pathname }: ToggleViewProps) {
             hrefLang={locale}
             aria-current={isActive ? "true" : undefined}
             className={cn(
-              "inline-flex h-9 min-w-11 items-center justify-center rounded-pill px-3 text-base font-bold uppercase",
+              "inline-flex h-10 min-w-11 items-center justify-center rounded-pill px-3 text-sm font-bold uppercase md:h-9 md:text-base",
               isActive ? "bg-pink text-pink-foreground" : "text-foreground hover:bg-card",
             )}
           >

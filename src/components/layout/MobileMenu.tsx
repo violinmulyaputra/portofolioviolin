@@ -57,7 +57,8 @@ export function MobileMenu() {
             onClick={close}
             className={buttonVariants({
               variant: "secondary",
-              className: "mt-4 w-full",
+              size: "hero",
+              className: "mt-4",
             })}
           >
             {t("contact")}

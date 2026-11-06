@@ -30,7 +30,7 @@ export function Hero() {
           <div className="area-cta relative z-10 mt-5 md:mt-6 xl:mt-8">
             <Link href="/about" className={buttonVariants({ size: "hero" })}>
               {t("cta")}
-              <ArrowIcon />
+              <ArrowIcon className="size-4 md:size-5" />
             </Link>
           </div>
 
