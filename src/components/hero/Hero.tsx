@@ -12,8 +12,8 @@ export function Hero() {
   return (
     <section aria-labelledby="hero-title" className="overflow-x-clip">
       <div className="container-content">
-        <div className="hero-layout pt-8 md:pt-12 xl:pt-0">
-          <div className="area-text relative z-10 flex min-w-0 flex-col gap-4 xl:max-w-hero-text xl:pt-16">
+        <div className="hero-layout pt-4 md:pt-6 xl:pt-0">
+          <div className="area-text relative z-10 flex min-w-0 flex-col gap-4 xl:max-w-hero-text xl:pt-6">
             <h1 id="hero-title" className="flex flex-col gap-2">
               <span className="font-hand text-greeting font-bold text-berry">
                 {t("greeting")}

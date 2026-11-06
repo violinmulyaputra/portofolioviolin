@@ -171,12 +171,12 @@ export const BOOKS: readonly BookData[] = [
 
 // Frames
 export const FRAME_WALL = {
-  left: 62.5,
+  left: 60.04,
   top: 3.24,
-  width: 32,
+  width: 34.47,
   height: 57.86,
-  ratio: 1.1,
-  widePx: 364,
+  ratio: 1.185,
+  widePx: 392,
   compactMaxPx: 300,
 };
 
@@ -185,8 +185,8 @@ export const FRAME_CLASS =
 
 export const FRAME_POSITIONS: Record<FrameId, Placement> = {
   a: { left: 0, top: 36.62, height: 43.73 },
-  b: { left: 42.13, top: 0, height: 44.85 },
-  c: { left: 41.63, top: 54.18, height: 45.78 },
+  b: { left: 46.24, top: 0, height: 44.85 },
+  c: { left: 45.78, top: 54.18, height: 45.78 },
 };
 
 export function frameWallStyle(): CSSProperties {
