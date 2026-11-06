@@ -11,12 +11,18 @@ export function MenuIcon({ isOpen, className }: MenuIconProps) {
       focusable="false"
       className={className}
     >
-      <path
-        d={isOpen ? "M6 6l12 12M18 6 6 18" : "M4 7h16M4 12h16M4 17h16"}
-        className="fill-none stroke-current"
-        strokeWidth={3}
-        strokeLinecap="round"
-      />
+      {isOpen ? (
+        <g className="fill-current">
+          <rect x="3" y="10.75" width="18" height="2.5" rx="1.25" transform="rotate(45 12 12)" />
+          <rect x="3" y="10.75" width="18" height="2.5" rx="1.25" transform="rotate(-45 12 12)" />
+        </g>
+      ) : (
+        <g className="fill-current">
+          <rect x="4" y="5.75" width="16" height="2.5" rx="1.25" />
+          <rect x="4" y="10.75" width="16" height="2.5" rx="1.25" />
+          <rect x="4" y="15.75" width="16" height="2.5" rx="1.25" />
+        </g>
+      )}
     </svg>
   );
 }

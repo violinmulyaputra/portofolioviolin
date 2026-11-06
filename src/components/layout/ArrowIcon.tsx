@@ -11,11 +11,8 @@ export function ArrowIcon({ className }: ArrowIconProps) {
       className={className}
     >
       <path
-        d="M4 12h15M13 6l6 6-6 6"
-        className="fill-none stroke-current"
-        strokeWidth={2.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M4 10.75h11.2l-3.6-3.6 1.77-1.77L20.04 12l-6.67 6.62-1.77-1.77 3.6-3.6H4z"
+        className="fill-current"
       />
     </svg>
   );
