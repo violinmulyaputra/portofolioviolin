@@ -1,17 +1,24 @@
 "use client";
 
-import { useEffect, useId, useState, type CSSProperties } from "react";
+import {
+  useEffect,
+  useId,
+  useState,
+  type CSSProperties,
+  type FocusEvent,
+  type PointerEvent,
+} from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 import {
-  FRAME_PLACEMENTS,
-  placementSizes,
-  placementStyle,
-  WALL_CLASS,
+  FRAME_CLASS,
+  FRAME_POSITIONS,
+  frameSizes,
+  frameStyle,
 } from "@/components/hero/desk-layout";
-import { SLIDE_SPRING } from "@/components/hero/motion";
+import { CROSSFADE } from "@/components/hero/motion";
 import { FRAME_PHOTO_INTERVAL_MS, type FrameData } from "@/data/frames";
 import { cn } from "@/lib/utils";
 
@@ -19,46 +26,51 @@ const PHOTO_BLEED = 1;
 
 const PHOTO_KEYS = ["1", "2", "3"] as const;
 
+const REAL_HOVER_QUERY = "(hover: hover) and (pointer: fine)";
+
 type FrameProps = {
   frame: FrameData;
 };
 
-type SlideState = {
-  current: number;
-  previous: number | null;
-};
-
-function photoTarget(index: number, slide: SlideState) {
-  if (index === slide.current) return "0%";
-  if (index === slide.previous) return "-100%";
-  return "100%";
+function canHover(event: PointerEvent<HTMLButtonElement>) {
+  return (
+    event.pointerType === "mouse" && window.matchMedia(REAL_HOVER_QUERY).matches
+  );
 }
 
 export function Frame({ frame }: FrameProps) {
   const t = useTranslations("Hero.frames");
   const prefersReducedMotion = useReducedMotion();
-  const [slide, setSlide] = useState<SlideState>({ current: 0, previous: null });
+  const [current, setCurrent] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
+  const [isKeyboardFocused, setIsKeyboardFocused] = useState(false);
   const [isPausedByUser, setIsPausedByUser] = useState(false);
   const captionId = useId();
 
   const isPaused =
-    isHovered || isFocused || isPausedByUser || prefersReducedMotion === true;
-  const placement = FRAME_PLACEMENTS[frame.id];
+    isHovered ||
+    isKeyboardFocused ||
+    isPausedByUser ||
+    prefersReducedMotion === true;
+  const position = FRAME_POSITIONS[frame.id];
   const image = { src: frame.src, width: frame.width, height: frame.height };
   const { hole } = frame;
 
   useEffect(() => {
     if (isPaused) return;
     const timer = window.setInterval(() => {
-      setSlide((state) => ({
-        current: (state.current + 1) % frame.photos.length,
-        previous: state.current,
-      }));
+      setCurrent((index) => (index + 1) % frame.photos.length);
     }, FRAME_PHOTO_INTERVAL_MS);
     return () => window.clearInterval(timer);
   }, [isPaused, frame.photos.length]);
+
+  const handlePointerEnter = (event: PointerEvent<HTMLButtonElement>) => {
+    if (canHover(event)) setIsHovered(true);
+  };
+
+  const handleFocus = (event: FocusEvent<HTMLButtonElement>) => {
+    setIsKeyboardFocused(event.currentTarget.matches(":focus-visible"));
+  };
 
   const holeStyle = {
     "--hl": `${hole.left - PHOTO_BLEED}%`,
@@ -74,51 +86,48 @@ export function Frame({ frame }: FrameProps) {
       aria-label={t("pause", { name: t(`${frame.id}.name`) })}
       aria-describedby={captionId}
       onClick={() => setIsPausedByUser((paused) => !paused)}
-      onPointerEnter={() => setIsHovered(true)}
+      onPointerEnter={handlePointerEnter}
       onPointerLeave={() => setIsHovered(false)}
-      onFocus={() => setIsFocused(true)}
-      onBlur={() => setIsFocused(false)}
-      className={cn(WALL_CLASS, "block cursor-pointer snap-center")}
-      style={placementStyle(placement, image)}
+      onFocus={handleFocus}
+      onBlur={() => setIsKeyboardFocused(false)}
+      className={cn(FRAME_CLASS, "block cursor-pointer")}
+      style={frameStyle(position, image)}
     >
       <span
         className="absolute top-(--ht) left-(--hl) h-(--hht) w-(--hwd) overflow-hidden bg-sand"
         style={holeStyle}
       >
-        {frame.photos.map((photo, index) => {
-          const target = photoTarget(index, slide);
-          return (
-            <motion.span
-              key={photo.src}
-              className="absolute inset-0"
-              initial={false}
-              animate={{ x: target }}
-              transition={target === "100%" ? { duration: 0 } : SLIDE_SPRING}
-              aria-hidden={index !== slide.current}
-            >
-              <Image
-                src={photo.src}
-                fill
-                sizes={placementSizes(placement, image, hole.width / 100)}
-                alt={t(`${frame.id}.photos.${PHOTO_KEYS[index]}`)}
-                draggable={false}
-                className="object-cover select-none"
-              />
-            </motion.span>
-          );
-        })}
+        {frame.photos.map((photo, index) => (
+          <motion.span
+            key={photo.src}
+            className="absolute inset-0"
+            initial={false}
+            animate={{ opacity: index === current ? 1 : 0 }}
+            transition={CROSSFADE}
+            aria-hidden={index !== current}
+          >
+            <Image
+              src={photo.src}
+              fill
+              sizes={frameSizes(position, image, hole.width / 100)}
+              alt={t(`${frame.id}.photos.${PHOTO_KEYS[index]}`)}
+              draggable={false}
+              className="object-cover select-none"
+            />
+          </motion.span>
+        ))}
       </span>
       <Image
         src={frame.src}
         width={frame.width}
         height={frame.height}
-        sizes={placementSizes(placement, image)}
+        sizes={frameSizes(position, image)}
         alt=""
         draggable={false}
         className="relative size-full select-none"
       />
       <span id={captionId} className="sr-only">
-        {t(`${frame.id}.photos.${PHOTO_KEYS[slide.current]}`)}
+        {t(`${frame.id}.photos.${PHOTO_KEYS[current]}`)}
       </span>
     </button>
   );

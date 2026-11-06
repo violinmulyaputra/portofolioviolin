@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 import {
@@ -12,12 +12,13 @@ import {
   placementSizes,
   placementStyle,
 } from "@/components/hero/desk-layout";
-import { SHORT_SPRING } from "@/components/hero/motion";
+import { INSTANT, SHORT_SPRING } from "@/components/hero/motion";
 import { cn } from "@/lib/utils";
 
 export function Lamp() {
   const t = useTranslations("Hero");
   const [isOn, setIsOn] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
   const { lampOff, lampOn } = ILLUSTRATIONS;
   const sizes = placementSizes(LAMP_PLACEMENT, lampOff);
 
@@ -35,7 +36,7 @@ export function Lamp() {
         className="lamp-glow pointer-events-none absolute -z-10"
         initial={false}
         animate={isOn ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-        transition={SHORT_SPRING}
+        transition={prefersReducedMotion ? INSTANT : SHORT_SPRING}
       />
       <Image
         src={lampOff.src}

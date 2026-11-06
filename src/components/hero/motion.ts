@@ -7,8 +7,11 @@ export const SHORT_SPRING: Transition = {
   mass: 0.6,
 };
 
-export const SLIDE_SPRING: Transition = {
-  type: "spring",
-  stiffness: 220,
-  damping: 30,
+export const CROSSFADE: Transition = {
+  duration: 0.8,
+  ease: "easeInOut",
+};
+
+export const INSTANT: Transition = {
+  duration: 0,
 };
