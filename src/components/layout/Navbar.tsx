@@ -12,7 +12,7 @@ export function Navbar() {
   const t = useTranslations("Nav");
 
   return (
-    <header className="relative z-40 border-b-2 border-line bg-background">
+    <header className="relative z-40 border-b border-line bg-background">
       <div className="container-content flex h-20 items-center gap-4">
         <div className="flex flex-1 items-center">
           <Link
@@ -35,7 +35,7 @@ export function Navbar() {
           <Link
             href="/contact"
             className={cn(
-              buttonVariants({ size: "sm" }),
+              buttonVariants({ variant: "secondary", size: "sm" }),
               "hidden lg:inline-flex",
             )}
           >

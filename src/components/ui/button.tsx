@@ -5,16 +5,16 @@ import { Slot } from "radix-ui";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-pill border-2 border-foreground font-sans font-bold whitespace-nowrap text-foreground shadow-soft transition-[translate,box-shadow] duration-150 ease-out select-none hover:-translate-y-0.5 hover:shadow-lift active:translate-y-px active:shadow-soft disabled:pointer-events-none disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
+  "inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-pill font-sans font-bold whitespace-nowrap shadow-soft transition-[translate,box-shadow] duration-150 ease-out select-none hover:-translate-y-0.5 hover:shadow-lift active:translate-y-px active:shadow-soft disabled:pointer-events-none disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
   {
     variants: {
       variant: {
-        default: "bg-primary",
-        secondary: "bg-card",
+        default: "bg-primary text-primary-foreground",
+        secondary: "bg-secondary text-secondary-foreground",
       },
       size: {
         default: "h-12 px-6 text-base",
-        sm: "h-10 px-4 text-sm",
+        sm: "h-10 px-5 text-base",
         icon: "size-12",
       },
     },

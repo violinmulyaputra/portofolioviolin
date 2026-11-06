@@ -14,14 +14,14 @@ export function Hero() {
         <div className="xl:relative xl:aspect-desk">
           <div className="relative z-10 flex flex-col items-start gap-6 pt-12 xl:max-w-hero-text xl:pt-16">
             <h1 id="hero-title" className="flex flex-col gap-2">
-              <span className="font-hand text-3xl font-bold text-muted-foreground md:text-4xl">
+              <span className="font-hand text-greeting font-bold text-berry">
                 {t("greeting")}
               </span>
-              <span className="font-display text-display font-semibold">
+              <span className="font-display text-display font-semibold text-primary">
                 {t("name")}
               </span>
             </h1>
-            <p className="max-w-xl text-lg text-muted-foreground">
+            <p className="max-w-xl text-lead text-muted-foreground">
               {t("tagline")}
             </p>
             <Link href="/about" className={buttonVariants()}>
@@ -39,7 +39,7 @@ export function Hero() {
               <Desk />
               <div
                 aria-hidden="true"
-                className="h-8 border-t-2 border-line bg-sand xl:hidden"
+                className="h-8 border-t border-line bg-sand xl:hidden"
               />
             </div>
           </div>
@@ -47,7 +47,7 @@ export function Hero() {
       </div>
       <div
         aria-hidden="true"
-        className="hidden h-8 border-t-2 border-line bg-sand xl:block"
+        className="hidden h-8 border-t border-line bg-sand xl:block"
       />
     </section>
   );

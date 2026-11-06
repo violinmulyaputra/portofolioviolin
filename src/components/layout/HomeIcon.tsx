@@ -19,7 +19,7 @@ export function HomeIcon({ className }: HomeIconProps) {
       />
       <path
         d="M13.5 26v-6.5h5V26"
-        className="fill-primary stroke-foreground"
+        className="fill-blush stroke-foreground"
         strokeWidth={3}
         strokeLinecap="round"
         strokeLinejoin="round"

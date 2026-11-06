@@ -44,7 +44,7 @@ export function MobileMenu() {
       <div
         id={panelId}
         hidden={!isOpen}
-        className="absolute inset-x-0 top-full z-40 border-b-2 border-line bg-background"
+        className="absolute inset-x-0 top-full z-40 border-b border-line bg-background"
       >
         <nav aria-label={t("label")} className="container-content py-6">
           <NavLinks
@@ -55,7 +55,10 @@ export function MobileMenu() {
           <Link
             href="/contact"
             onClick={close}
-            className={buttonVariants({ className: "mt-4 w-full" })}
+            className={buttonVariants({
+              variant: "secondary",
+              className: "mt-4 w-full",
+            })}
           >
             {t("contact")}
           </Link>

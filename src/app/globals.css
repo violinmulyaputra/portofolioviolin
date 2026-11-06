@@ -3,24 +3,26 @@
 
 /* Tokens */
 :root {
-  --background: #fff7eb;
-  --sand: #f9f0e0;
-  --card: #fffdf8;
-  --foreground: #4a3b35;
-  --muted-foreground: #7a675f;
-  --primary: #f8b8c8;
-  --berry: #cc3a63;
+  --background: #fffcf7;
+  --sand: #fbf5ec;
+  --card: #ffffff;
+  --foreground: #3f3a33;
+  --muted-foreground: #6b6359;
+  --primary: #4a6640;
+  --blush: #f9c6d3;
+  --berry: #c23b62;
+  --matcha-soft: #dde8cc;
   --butter: #ffe59a;
-  --sage: #b9c89b;
   --sky: #a9cbef;
   --peach: #ffd3b6;
-  --line: #e8d9c3;
+  --line: #efe6d6;
+  --white: #ffffff;
 
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
-  --primary-foreground: var(--foreground);
-  --secondary: var(--sand);
+  --primary-foreground: var(--white);
+  --secondary: var(--blush);
   --secondary-foreground: var(--foreground);
   --muted: var(--sand);
   --accent: var(--sand);
@@ -44,9 +46,11 @@
   --color-foreground: var(--foreground);
   --color-muted-foreground: var(--muted-foreground);
   --color-primary: var(--primary);
+  --color-blush: var(--blush);
   --color-berry: var(--berry);
+  --color-matcha-soft: var(--matcha-soft);
+  --color-white: var(--white);
   --color-butter: var(--butter);
-  --color-sage: var(--sage);
   --color-sky: var(--sky);
   --color-peach: var(--peach);
   --color-line: var(--line);
@@ -69,10 +73,14 @@
   --font-sans: var(--font-jakarta);
   --font-hand: var(--font-gaegu);
 
-  --text-display: clamp(3rem, 8vw, 6rem);
+  --text-display: clamp(2.25rem, 5.5vw, 4rem);
   --text-display--line-height: 1.05;
-  --text-section: clamp(2rem, 5vw, 3.5rem);
+  --text-section: clamp(1.75rem, 4vw, 2.5rem);
   --text-section--line-height: 1.15;
+  --text-greeting: clamp(1.25rem, 2.5vw, 1.75rem);
+  --text-greeting--line-height: 1.2;
+  --text-lead: clamp(1rem, 1.5vw, 1.25rem);
+  --text-lead--line-height: 1.6;
 
 }
 
@@ -83,8 +91,8 @@
   --radius-pill: 9999px;
 
   --shadow-*: initial;
-  --shadow-soft: 0 4px 0 rgb(74 59 53 / 0.12);
-  --shadow-lift: 0 6px 0 rgb(74 59 53 / 0.16);
+  --shadow-soft: 0 4px 12px rgb(63 58 51 / 0.1);
+  --shadow-lift: 0 8px 20px rgb(63 58 51 / 0.14);
 
   --spacing-gutter: 16px;
   --spacing-gutter-desktop: 32px;
@@ -166,7 +174,7 @@
 }
 
 @utility underline-hover {
-  text-decoration-color: var(--primary);
+  text-decoration-color: var(--blush);
   text-decoration-thickness: 3px;
   text-underline-offset: 8px;
 
