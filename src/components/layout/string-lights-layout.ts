@@ -9,11 +9,11 @@ export const STRING_LIGHTS = {
   copyWidthPercent: 64,
   maxCopyWidthPx: 1000,
   overlapPercentOfCopy: 36,
-  rightDropPercent: 10,
-  leftRotateDeg: -1,
-  rightRotateDeg: 2,
+  rightDropPercent: 0,
+  leftRotateDeg: -1.5,
+  rightRotateDeg: 1.5,
   bandTopRow: 80,
-  bandBottomRow: 660,
+  bandBottomRow: 578,
 };
 
 const { width: IMAGE_WIDTH, height: IMAGE_HEIGHT } = LIGHTS_IMAGES.off;
