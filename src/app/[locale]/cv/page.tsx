@@ -20,8 +20,13 @@ export default function CvPage() {
   const sizeKb = publicFileSizeKb(cv.href);
 
   return (
-    <PageShell title={t("title")} intro={t("intro")}>
-      <div className="mt-8 flex flex-wrap items-center gap-3 md:gap-4">
+    <PageShell
+      title={t("title")}
+      intro={t("intro")}
+      centered
+      titleClassName="font-semibold text-rose"
+    >
+      <div className="mt-8 flex flex-col items-center gap-3 md:flex-row md:justify-center md:gap-4">
         <a
           href={cv.href}
           download={cv.downloadName}
