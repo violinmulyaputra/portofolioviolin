@@ -15,10 +15,10 @@ export function Hero() {
         <div className="hero-layout pt-4 md:pt-6 xl:pt-0">
           <div className="area-text relative z-10 flex min-w-0 flex-col gap-4 xl:max-w-hero-text xl:pt-6">
             <h1 id="hero-title" className="flex flex-col gap-2">
-              <span className="font-hand text-greeting font-bold text-berry">
+              <span className="font-hand text-greeting font-bold text-matcha">
                 {t("greeting")}
               </span>
-              <span className="font-display text-display font-semibold break-words text-primary">
+              <span className="font-display text-display font-semibold break-words text-rose">
                 {t("name")}
               </span>
             </h1>
@@ -43,7 +43,7 @@ export function Hero() {
               <Desk />
               <div
                 aria-hidden="true"
-                className="h-8 border-t border-line bg-sand xl:hidden"
+                className="h-8 bg-blush xl:hidden"
               />
             </div>
           </div>
@@ -53,7 +53,7 @@ export function Hero() {
       </div>
       <div
         aria-hidden="true"
-        className="hidden h-8 border-t border-line bg-sand xl:block"
+        className="hidden h-8 bg-blush xl:block"
       />
     </section>
   );

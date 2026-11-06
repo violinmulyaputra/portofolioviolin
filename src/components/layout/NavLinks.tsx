@@ -36,7 +36,7 @@ function NavLinksView({
               onClick={onNavigate}
               aria-current={isActive ? "page" : undefined}
               className={cn(
-                "inline-flex items-center font-medium",
+                "inline-flex items-center font-medium text-muted-foreground",
                 isActive ? "underline-active" : "underline-hover",
                 linkClassName,
               )}

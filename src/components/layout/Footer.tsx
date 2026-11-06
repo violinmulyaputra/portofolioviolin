@@ -7,13 +7,13 @@ export function Footer() {
   const tMeta = useTranslations("Metadata");
 
   return (
-    <footer className="border-t border-line bg-sand">
+    <footer className="bg-blush">
       <div className="container-content flex flex-col gap-6 py-12 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-col gap-1">
           <p className="font-display text-2xl font-medium">
             {tMeta("siteName")}
           </p>
-          <p className="text-muted-foreground">{t("copyright")}</p>
+          <p className="text-foreground">{t("copyright")}</p>
         </div>
         <nav aria-label={t("socials")}>
           <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">

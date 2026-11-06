@@ -12,13 +12,13 @@ export function Navbar() {
   const t = useTranslations("Nav");
 
   return (
-    <header className="relative z-40 border-b border-line bg-background">
+    <header className="relative z-40 border-b border-blush bg-background">
       <div className="container-content flex h-20 items-center gap-4">
         <div className="flex flex-1 items-center">
           <Link
             href="/"
             aria-label={t("home")}
-            className="inline-flex size-12 items-center justify-center rounded-pill hover:bg-sand"
+            className="inline-flex size-12 items-center justify-center rounded-pill hover:bg-blush"
           >
             <HomeIcon className="size-9" />
           </Link>

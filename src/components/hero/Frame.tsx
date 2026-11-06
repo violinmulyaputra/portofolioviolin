@@ -94,7 +94,7 @@ export function Frame({ frame }: FrameProps) {
       style={frameStyle(position, image)}
     >
       <span
-        className="absolute top-(--ht) left-(--hl) h-(--hht) w-(--hwd) overflow-hidden bg-sand"
+        className="absolute top-(--ht) left-(--hl) h-(--hht) w-(--hwd) overflow-hidden bg-blush"
         style={holeStyle}
       >
         {frame.photos.map((photo, index) => (
