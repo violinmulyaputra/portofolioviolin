@@ -11,7 +11,7 @@ import {
   type DeskPlacement,
   type Illustration,
 } from "@/components/hero/desk-layout";
-import { SHORT_SPRING } from "@/components/hero/motion";
+import { SHORT_SPRING } from "@/lib/motion";
 import type { Social } from "@/data/socials";
 import { cn } from "@/lib/utils";
 

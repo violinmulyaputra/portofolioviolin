@@ -12,7 +12,7 @@ import {
   spineFontSize,
   type BookData,
 } from "@/components/hero/desk-layout";
-import { SHORT_SPRING } from "@/components/hero/motion";
+import { SHORT_SPRING } from "@/lib/motion";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 

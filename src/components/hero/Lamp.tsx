@@ -12,7 +12,7 @@ import {
   placementSizes,
   placementStyle,
 } from "@/components/hero/desk-layout";
-import { INSTANT, SHORT_SPRING } from "@/components/hero/motion";
+import { INSTANT, SHORT_SPRING } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 export function Lamp() {

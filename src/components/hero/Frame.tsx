@@ -19,7 +19,7 @@ import {
   frameSizes,
   frameStyle,
 } from "@/components/hero/desk-layout";
-import { CROSSFADE } from "@/components/hero/motion";
+import { CROSSFADE } from "@/lib/motion";
 import { FRAME_PHOTO_INTERVAL_MS, type FrameData } from "@/data/frames";
 import { cn } from "@/lib/utils";
 
