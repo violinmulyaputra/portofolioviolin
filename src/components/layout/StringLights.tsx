@@ -5,19 +5,17 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
+import {
+  LIGHTS_IMAGES,
+  STRING_LIGHTS_SIZES,
+  stringLightsVars,
+} from "@/components/layout/string-lights-layout";
 import { INSTANT, SHORT_SPRING } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
-const LIGHTS = {
-  off: { src: "/illustrations/lights-off.webp", width: 2167, height: 726 },
-  on: { src: "/illustrations/lights-on.webp", width: 2167, height: 726 },
-};
-
-const SIZES = "(min-width: 1432px) 780px, 55vw";
-
 const COPIES = ["string-lights-copy-left", "string-lights-copy-right"];
 
-type LightsImage = (typeof LIGHTS)[keyof typeof LIGHTS];
+type LightsImage = (typeof LIGHTS_IMAGES)[keyof typeof LIGHTS_IMAGES];
 
 function LightsCopies({
   image,
@@ -27,21 +25,18 @@ function LightsCopies({
   preloadFirst?: boolean;
 }) {
   return COPIES.map((copyClass, index) => (
-    <span key={copyClass} className={copyClass}>
-      <span className="string-lights-band">
-        <Image
-          src={image.src}
-          width={image.width}
-          height={image.height}
-          sizes={SIZES}
-          alt=""
-          aria-hidden="true"
-          draggable={false}
-          preload={preloadFirst && index === 0}
-          className="h-auto w-full"
-        />
-      </span>
-    </span>
+    <Image
+      key={copyClass}
+      src={image.src}
+      width={image.width}
+      height={image.height}
+      sizes={STRING_LIGHTS_SIZES}
+      alt=""
+      aria-hidden="true"
+      draggable={false}
+      preload={preloadFirst && index === 0}
+      className={copyClass}
+    />
   ));
 }
 
@@ -61,10 +56,11 @@ export function StringLights({ className }: StringLightsProps) {
       aria-label={lit ? t("turnOff") : t("turnOn")}
       onClick={() => setLit((on) => !on)}
       className={cn("string-lights cursor-pointer select-none", className)}
+      style={stringLightsVars()}
     >
       <span className="string-lights-track block">
         <span aria-hidden="true" className="absolute inset-0">
-          <LightsCopies image={LIGHTS.off} preloadFirst />
+          <LightsCopies image={LIGHTS_IMAGES.off} preloadFirst />
         </span>
         <motion.span
           aria-hidden="true"
@@ -73,7 +69,7 @@ export function StringLights({ className }: StringLightsProps) {
           animate={{ opacity: lit ? 1 : 0 }}
           transition={prefersReducedMotion ? INSTANT : SHORT_SPRING}
         >
-          <LightsCopies image={LIGHTS.on} />
+          <LightsCopies image={LIGHTS_IMAGES.on} />
         </motion.span>
       </span>
     </button>

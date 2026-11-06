@@ -112,7 +112,6 @@
   --container-desk-compact: 760px;
   --container-hero-text: 58%;
   --container-frame-wall-mobile: 9.5rem;
-  --container-string-lights: 780px;
 
   --aspect-desk: 1840 / 925;
   --aspect-desk-compact: 1000 / 360;
@@ -160,32 +159,27 @@
 }
 
 @utility string-lights-track {
-  --lights-copy: min(54.5cqw, var(--container-string-lights));
-  --lights-overlap: calc(var(--lights-copy) * 0.046);
   position: relative;
-  height: calc(var(--lights-copy) * 500 / 2167);
+  height: calc(var(--lights-copy) * var(--lights-band));
 }
 
 @utility string-lights-copy-left {
   position: absolute;
-  inset-block: 0;
-  right: calc(50% - var(--lights-overlap));
+  right: calc(50% - var(--lights-copy) * var(--lights-overlap) / 2);
+  top: calc(var(--lights-copy) * var(--lights-top));
   width: var(--lights-copy);
-  overflow: clip;
+  aspect-ratio: var(--lights-ratio);
+  rotate: var(--lights-left-rotate);
 }
 
 @utility string-lights-copy-right {
   position: absolute;
-  inset-block: 0;
-  left: calc(50% - var(--lights-overlap));
+  z-index: 1;
+  left: calc(50% - var(--lights-copy) * var(--lights-overlap) / 2);
+  top: calc(var(--lights-copy) * (var(--lights-top) + var(--lights-drop)));
   width: var(--lights-copy);
-  overflow: clip;
-}
-
-@utility string-lights-band {
-  position: absolute;
-  inset-inline: 0;
-  top: -20%;
+  aspect-ratio: var(--lights-ratio);
+  rotate: var(--lights-right-rotate);
 }
 
 @utility h-preview {
