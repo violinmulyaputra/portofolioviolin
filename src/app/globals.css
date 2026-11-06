@@ -3,34 +3,32 @@
 
 /* Tokens */
 :root {
-  --background: #fff5f5;
-  --sand: #f8f1de;
+  --background: #fffbfb;
+  --blush: #ffe2e2;
   --card: #ffffff;
-  --foreground: #4e3f36;
-  --muted-foreground: #796858;
-  --primary: #6f7a4e;
-  --matcha: #a2a175;
-  --rose: #e49ea8;
-  --blush: #e7c3c3;
-  --berry: #b84c69;
+  --foreground: #5e4f46;
+  --muted-foreground: #7a6a5e;
+  --primary: #9aa671;
+  --primary-foreground: #3b322c;
+  --matcha: #7e8d55;
+  --rose: #c87988;
+  --pink: #f0aab5;
+  --berry: #b35a72;
   --butter: #ffe59a;
   --sky: #a9cbef;
   --peach: #ffd3b6;
-  --line: #f0dcdc;
-  --white: #ffffff;
 
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
-  --primary-foreground: var(--white);
-  --secondary: var(--rose);
-  --secondary-foreground: var(--foreground);
-  --muted: var(--sand);
-  --accent: var(--sand);
+  --secondary: var(--pink);
+  --secondary-foreground: var(--primary-foreground);
+  --muted: var(--blush);
+  --accent: var(--blush);
   --accent-foreground: var(--foreground);
   --destructive: var(--berry);
-  --border: var(--line);
-  --input: var(--line);
+  --border: var(--blush);
+  --input: var(--blush);
   --ring: var(--berry);
 
   color-scheme: light;
@@ -42,20 +40,18 @@
   --color-transparent: transparent;
   --color-current: currentColor;
   --color-background: var(--background);
-  --color-sand: var(--sand);
+  --color-blush: var(--blush);
   --color-card: var(--card);
   --color-foreground: var(--foreground);
   --color-muted-foreground: var(--muted-foreground);
   --color-primary: var(--primary);
   --color-matcha: var(--matcha);
   --color-rose: var(--rose);
-  --color-blush: var(--blush);
+  --color-pink: var(--pink);
   --color-berry: var(--berry);
-  --color-white: var(--white);
   --color-butter: var(--butter);
   --color-sky: var(--sky);
   --color-peach: var(--peach);
-  --color-line: var(--line);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
@@ -209,13 +205,13 @@
 /* Utilities */
 @utility underline-active {
   text-decoration-line: underline;
-  text-decoration-color: var(--berry);
+  text-decoration-color: var(--rose);
   text-decoration-thickness: 3px;
   text-underline-offset: 8px;
 }
 
 @utility underline-hover {
-  text-decoration-color: var(--rose);
+  text-decoration-color: var(--pink);
   text-decoration-thickness: 3px;
   text-underline-offset: 8px;
 
