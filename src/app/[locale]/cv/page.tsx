@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
@@ -26,32 +27,57 @@ export default function CvPage() {
       centered
       titleClassName="font-semibold text-rose"
     >
-      <div className="mt-8 flex flex-col items-center gap-3 md:flex-row md:justify-center md:gap-4">
-        <a
-          href={cv.href}
-          download={cv.downloadName}
-          type="application/pdf"
-          aria-describedby="cv-file-info"
-          className={buttonVariants({ size: "hero" })}
-        >
-          {t("download")}
-          <ArrowIcon className="size-3.5 rotate-90 md:size-5" />
-        </a>
+      {/* Actions */}
+      <div className="mt-8 flex flex-col items-center gap-3 md:flex-row md:items-start md:justify-center md:gap-4">
+        <div className="flex flex-col items-start gap-2">
+          <a
+            href={cv.href}
+            download={cv.downloadName}
+            type="application/pdf"
+            aria-describedby="cv-file-info"
+            className={buttonVariants({ size: "compact" })}
+          >
+            {t("download")}
+            <ArrowIcon className="size-4 rotate-90 md:size-5" />
+          </a>
+          <p
+            id="cv-file-info"
+            className="text-caption text-muted-foreground"
+          >
+            {t("fileInfo", { size: sizeKb })}
+          </p>
+        </div>
         <a
           href={cv.href}
           target="_blank"
           rel="noopener noreferrer"
           type="application/pdf"
-          className={buttonVariants({ variant: "secondary", size: "hero" })}
+          className={buttonVariants({ variant: "secondary", size: "compact" })}
         >
           {t("openNewTab")}
           <span className="sr-only">{t("openNewTabHint")}</span>
         </a>
       </div>
-      <p id="cv-file-info" className="mt-3 text-base text-muted-foreground">
-        {t("fileInfo", { size: sizeKb })}
-      </p>
 
+      {/* Preview mobile */}
+      <a
+        href={cv.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-10 block overflow-hidden rounded-card bg-card shadow-soft md:hidden"
+      >
+        <Image
+          src={cv.preview.src}
+          width={cv.preview.width}
+          height={cv.preview.height}
+          alt={t("previewImageAlt")}
+          sizes="100vw"
+          className="h-auto w-full"
+        />
+        <span className="sr-only">{t("previewImageHint")}</span>
+      </a>
+
+      {/* Preview desktop */}
       <div className="mt-12 hidden h-preview overflow-hidden rounded-card bg-card shadow-soft md:block">
         <object
           data={cv.href}

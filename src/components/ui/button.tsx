@@ -16,6 +16,7 @@ const buttonVariants = cva(
         default: "h-12 px-6 text-base",
         sm: "h-10 px-5 text-base",
         hero: "relative h-8 px-3 text-lead-mobile before:absolute before:inset-x-0 before:-inset-y-1 md:h-12 md:px-6 md:text-base md:before:hidden",
+        compact: "h-10 px-5 text-sm md:h-12 md:px-6 md:text-button-compact",
         icon: "size-10 md:size-12",
       },
       effect: {

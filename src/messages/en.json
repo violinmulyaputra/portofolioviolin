@@ -107,14 +107,16 @@
   "CvPage": {
     "title": "Curriculum Vitae (CV)",
     "metaDescription": "View and download Violin Mulya Putra's CV as a PDF, in English or Indonesian.",
-    "intro": "Here is a summary of my education, experience, projects, and skills.",
+    "intro": "Here is a summary of my education, experience, and skills.",
     "download": "Download CV (PDF)",
     "openNewTab": "Open in new tab",
     "openNewTabHint": ", CV PDF",
     "fileInfo": "PDF, {size, number} KB",
     "previewTitle": "Preview of Violin Mulya Putra's CV (PDF)",
     "previewFallback": "The preview couldn't load in this browser.",
-    "previewFallbackLink": "Download the CV (PDF)"
+    "previewFallbackLink": "Download the CV (PDF)",
+    "previewImageAlt": "First page of Violin Mulya Putra's CV",
+    "previewImageHint": ", opens the full PDF in a new tab"
   },
   "ContactPage": {
     "title": "Contact"

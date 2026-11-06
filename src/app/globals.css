@@ -87,6 +87,9 @@
   --text-lead--line-height: 1.6;
   --text-lead-mobile: 0.8125rem;
   --text-lead-mobile--line-height: 1.5;
+  --text-button-compact: 0.9375rem;
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.5;
 
 }
 
