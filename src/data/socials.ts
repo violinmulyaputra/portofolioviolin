@@ -31,3 +31,40 @@ export const SOCIALS: readonly Social[] = [
 export const EMAIL = "violinmulya@gmail.com";
 
 export const EMAIL_HREF = `mailto:${EMAIL}`;
+
+// Phone
+export const PHONE = {
+  display: "+62 858-9305-7924",
+  digits: "6285893057924",
+} as const;
+
+export const WHATSAPP_HREF = `https://wa.me/${PHONE.digits}`;
+
+// Contact page
+export type ContactKey = SocialKey | "email" | "whatsapp";
+
+export type ContactLink = {
+  key: ContactKey;
+  handle: string;
+  href: string;
+  newTab: boolean;
+};
+
+function socialLink(key: SocialKey): ContactLink {
+  const social = SOCIALS.find((item) => item.key === key);
+  if (!social) throw new Error(`Missing social: ${key}`);
+  return { key, handle: social.handle, href: social.href, newTab: true };
+}
+
+export const CONTACT_LINKS: readonly ContactLink[] = [
+  socialLink("linkedin"),
+  socialLink("github"),
+  { key: "email", handle: EMAIL, href: EMAIL_HREF, newTab: false },
+  socialLink("instagram"),
+  {
+    key: "whatsapp",
+    handle: PHONE.display,
+    href: WHATSAPP_HREF,
+    newTab: false,
+  },
+];

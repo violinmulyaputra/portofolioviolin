@@ -119,7 +119,20 @@
     "previewImageHint": ", membuka PDF lengkap di tab baru"
   },
   "ContactPage": {
-    "title": "Kontak"
+    "title": "Hubungi Saya",
+    "metaDescription": "Hubungi Violin Mulya Putra lewat email, WhatsApp, LinkedIn, GitHub, atau Instagram.",
+    "intro": "Hubungi kontak di bawah ini untuk menjalin hubungan lebih lanjut.",
+    "lampOn": "Nyalakan lampu",
+    "lampOff": "Matikan lampu",
+    "phone": "Gagang telepon",
+    "listLabel": "Tautan kontak",
+    "links": {
+      "linkedin": "LinkedIn: {handle} (terbuka di tab baru)",
+      "github": "GitHub: {handle} (terbuka di tab baru)",
+      "email": "Email: {handle}",
+      "instagram": "Instagram: {handle} (terbuka di tab baru)",
+      "whatsapp": "WhatsApp: {handle}"
+    }
   },
   "NotFoundPage": {
     "title": "Halaman tidak ditemukan",

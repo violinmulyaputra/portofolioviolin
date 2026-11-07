@@ -19,6 +19,16 @@
   --butter: #ffe59a;
   --sky: #a9cbef;
   --peach: #ffd3b6;
+  --social-linkedin: #a9cbef;
+  --social-linkedin-ink: #3b6c99;
+  --social-github: #ffd3b6;
+  --social-github-ink: #a8582d;
+  --social-email: #f0aab5;
+  --social-email-ink: #9e3f55;
+  --social-instagram: #cdb8e8;
+  --social-instagram-ink: #65449a;
+  --social-whatsapp: #c9d3ae;
+  --social-whatsapp-ink: #566338;
 
   --card-foreground: var(--foreground);
   --popover: var(--card);
@@ -56,6 +66,16 @@
   --color-butter: var(--butter);
   --color-sky: var(--sky);
   --color-peach: var(--peach);
+  --color-social-linkedin: var(--social-linkedin);
+  --color-social-linkedin-ink: var(--social-linkedin-ink);
+  --color-social-github: var(--social-github);
+  --color-social-github-ink: var(--social-github-ink);
+  --color-social-email: var(--social-email);
+  --color-social-email-ink: var(--social-email-ink);
+  --color-social-instagram: var(--social-instagram);
+  --color-social-instagram-ink: var(--social-instagram-ink);
+  --color-social-whatsapp: var(--social-whatsapp);
+  --color-social-whatsapp-ink: var(--social-whatsapp-ink);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
@@ -90,6 +110,10 @@
   --text-button-compact: 0.9375rem;
   --text-caption: 0.8125rem;
   --text-caption--line-height: 1.5;
+  --text-contact: 1rem;
+  --text-contact--line-height: 1.4;
+  --text-contact-desktop: 1.25rem;
+  --text-contact-desktop--line-height: 1.35;
 
 }
 
@@ -107,11 +131,15 @@
   --spacing-gutter-desktop: 32px;
   --spacing-section: 64px;
   --spacing-section-desktop: 96px;
+  --spacing-page: 32px;
+  --spacing-page-desktop: 48px;
   --container-content: 1200px;
   --container-desk: 560px;
   --container-desk-compact: 760px;
   --container-hero-text: 58%;
   --container-frame-wall-mobile: 9.5rem;
+  --container-contact-scene-mobile: 250px;
+  --container-contact-scene: 288px;
 
   --aspect-desk: 1840 / 925;
   --aspect-desk-compact: 1000 / 360;
@@ -237,19 +265,66 @@
 }
 
 @utility lamp-glow {
-  top: 46%;
+  top: var(--glow-top, 46%);
   left: 50%;
-  width: 360%;
+  width: var(--glow-size, 360%);
   aspect-ratio: 1;
   translate: -50% -50%;
   border-radius: 9999px;
-  clip-path: inset(0 0 27.8% 0);
+  clip-path: var(--glow-clip, inset(0 0 27.8% 0));
   background: radial-gradient(
     closest-side,
     color-mix(in srgb, var(--butter) 45%, transparent),
     color-mix(in srgb, var(--butter) 15%, transparent) 45%,
     transparent
   );
+}
+
+/* Contact */
+@utility contact-scene {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--scene-ratio);
+}
+
+@utility contact-object {
+  position: absolute;
+  left: var(--x);
+  bottom: var(--y);
+  width: var(--w);
+  height: var(--h);
+}
+
+@utility contact-overlay {
+  position: absolute;
+  left: var(--ox);
+  top: var(--oy);
+  width: var(--ow);
+  height: var(--oh);
+  max-width: none;
+}
+
+@utility contact-layout {
+  display: grid;
+  justify-items: center;
+  row-gap: 32px;
+
+  @media (width >= 48rem) {
+    grid-template-columns: minmax(0, var(--container-contact-scene)) max-content;
+    justify-content: center;
+    align-items: center;
+    column-gap: 24px;
+  }
+
+  @media (width >= 80rem) {
+    column-gap: 48px;
+  }
+}
+
+@utility floor-lamp-glow {
+  --glow-top: 14%;
+  --glow-size: 300%;
+  --glow-clip: none;
 }
 
 /* Base */
@@ -283,6 +358,16 @@
 
   @media (hover: hover) {
     &:hover {
+      color: var(--berry);
+    }
+  }
+}
+
+@utility nav-hover-group-text {
+  transition: color 150ms ease;
+
+  @media (hover: hover) {
+    .group:hover & {
       color: var(--berry);
     }
   }

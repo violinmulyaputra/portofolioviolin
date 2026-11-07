@@ -119,7 +119,20 @@
     "previewImageHint": ", opens the full PDF in a new tab"
   },
   "ContactPage": {
-    "title": "Contact"
+    "title": "Contact Me",
+    "metaDescription": "Contact Violin Mulya Putra by email, WhatsApp, LinkedIn, GitHub, or Instagram.",
+    "intro": "Reach out through the contacts below to connect further.",
+    "lampOn": "Turn on the lamp",
+    "lampOff": "Turn off the lamp",
+    "phone": "Telephone handset",
+    "listLabel": "Contact links",
+    "links": {
+      "linkedin": "LinkedIn: {handle} (opens in a new tab)",
+      "github": "GitHub: {handle} (opens in a new tab)",
+      "email": "Email: {handle}",
+      "instagram": "Instagram: {handle} (opens in a new tab)",
+      "whatsapp": "WhatsApp: {handle}"
+    }
   },
   "NotFoundPage": {
     "title": "Page not found",
