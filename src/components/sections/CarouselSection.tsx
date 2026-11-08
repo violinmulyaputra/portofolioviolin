@@ -28,7 +28,7 @@ type CarouselSectionProps = {
   carouselLabel: string;
   previousLabel: string;
   nextLabel: string;
-  seeAllHref: "/certificates" | "/experiences";
+  seeAllHref: "/projects" | "/experiences" | "/certificates";
   seeAllLabel: string;
   spacingTop?: SectionSpacingTop;
   spacingBottom?: SectionSpacingBottom;

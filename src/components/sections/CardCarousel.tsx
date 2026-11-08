@@ -16,6 +16,12 @@ import { cn } from "@/lib/utils";
 
 const EDGE_TOLERANCE_PX = 2;
 
+const FIT_CLASS: Record<number, string> = {
+  1: "carousel-fit-1",
+  2: "carousel-fit-2",
+  3: "carousel-fit-3",
+};
+
 type CardCarouselProps = {
   label: string;
   previousLabel: string;
@@ -78,7 +84,12 @@ export function CardCarousel({
   };
 
   return (
-    <div role="region" aria-roledescription="carousel" aria-label={label}>
+    <div
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={label}
+      className={FIT_CLASS[Children.count(children)]}
+    >
       <div className="carousel-frame">
         <ul ref={trackRef} className="carousel-track">
           {Children.map(children, (child) => (

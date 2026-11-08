@@ -452,6 +452,53 @@
   }
 }
 
+@utility carousel-fit-1 {
+  & .carousel-track {
+    justify-content: center;
+  }
+
+  & .carousel-arrow {
+    display: none;
+  }
+}
+
+@utility carousel-fit-2 {
+  @media (width >= 48rem) {
+    & .carousel-track {
+      justify-content: center;
+    }
+
+    & .carousel-arrow {
+      display: none;
+    }
+  }
+}
+
+@utility carousel-fit-3 {
+  @media (width >= 64rem) {
+    & .carousel-track {
+      justify-content: center;
+    }
+
+    & .carousel-arrow {
+      display: none;
+    }
+  }
+}
+
+@utility card-cell {
+  flex: 0 0 100%;
+  min-width: 0;
+
+  @media (width >= 48rem) {
+    flex-basis: calc((100% - 24px) / 2);
+  }
+
+  @media (width >= 64rem) {
+    flex-basis: calc((100% - 48px) / 3);
+  }
+}
+
 @utility carousel-frame {
   position: relative;
   container-type: inline-size;

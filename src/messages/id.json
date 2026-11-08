@@ -119,10 +119,34 @@
       }
     }
   },
+  "Projects": {
+    "sectionTitle": "Proyek",
+    "sectionIntro": "Berikut ini adalah proyek yang pernah saya kerjakan.",
+    "carouselLabel": "Proyek",
+    "previous": "Proyek sebelumnya",
+    "next": "Proyek berikutnya",
+    "seeAll": "Lihat semua",
+    "seeDetails": "Lihat detail",
+    "seeDetailsFor": "Lihat detail: {title}",
+    "close": "Tutup",
+    "photos": "Gambar: {title}",
+    "photoAlt": "Gambar proyek {title}, foto {n}",
+    "technologies": "Teknologi",
+    "role": "Peran",
+    "links": {
+      "gdrive": "Buka di Google Drive",
+      "colab": "Buka di Google Colab",
+      "wokwi": "Buka simulasi di Wokwi",
+      "github": "Lihat di GitHub",
+      "demo": "Lihat demo"
+    },
+    "newTab": "{label}, membuka di tab baru"
+  },
   "ProjectsPage": {
     "title": "Proyek",
     "metaDescription": "Proyek Violin Mulya Putra, mahasiswa Teknologi Informasi Universitas Gadjah Mada.",
-    "empty": "Proyek saya akan segera ditambahkan di sini."
+    "empty": "Proyek saya akan segera ditambahkan di sini.",
+    "intro": "Berikut ini adalah proyek yang pernah saya kerjakan."
   },
   "Experiences": {
     "sectionTitle": "Pengalaman",

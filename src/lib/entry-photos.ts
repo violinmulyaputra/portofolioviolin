@@ -8,7 +8,7 @@ import type { ResolvedPhoto } from "@/data/shared";
 
 export const MAX_ENTRY_PHOTOS = 4;
 
-export type EntrySection = "experiences" | "certificates";
+export type EntrySection = "experiences" | "certificates" | "projects";
 
 const PUBLIC_DIR = path.join(process.cwd(), "public");
 
@@ -25,6 +25,10 @@ async function getAltFormatter(section: EntrySection, locale: Locale) {
     const t = await getTranslations({ locale, namespace: "Experiences" });
     return (label: string, n: number) =>
       t("photoAlt", { organization: label, n });
+  }
+  if (section === "projects") {
+    const t = await getTranslations({ locale, namespace: "Projects" });
+    return (label: string, n: number) => t("photoAlt", { title: label, n });
   }
   const t = await getTranslations({ locale, namespace: "Certificates" });
   return (label: string, n: number) => t("photoAlt", { title: label, n });

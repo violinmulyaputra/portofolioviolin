@@ -119,10 +119,34 @@
       }
     }
   },
+  "Projects": {
+    "sectionTitle": "Projects",
+    "sectionIntro": "Here are the projects I have worked on.",
+    "carouselLabel": "Projects",
+    "previous": "Previous projects",
+    "next": "Next projects",
+    "seeAll": "View all",
+    "seeDetails": "See details",
+    "seeDetailsFor": "See details: {title}",
+    "close": "Close",
+    "photos": "Images: {title}",
+    "photoAlt": "{title} project image, photo {n}",
+    "technologies": "Technologies",
+    "role": "Role",
+    "links": {
+      "gdrive": "Open in Google Drive",
+      "colab": "Open in Google Colab",
+      "wokwi": "Open simulation on Wokwi",
+      "github": "View on GitHub",
+      "demo": "View demo"
+    },
+    "newTab": "{label}, opens in a new tab"
+  },
   "ProjectsPage": {
     "title": "Projects",
     "metaDescription": "Projects by Violin Mulya Putra, an Information Technology student at Universitas Gadjah Mada.",
-    "empty": "My projects will be added here soon."
+    "empty": "My projects will be added here soon.",
+    "intro": "Here are the projects I have worked on."
   },
   "Experiences": {
     "sectionTitle": "Experiences",
