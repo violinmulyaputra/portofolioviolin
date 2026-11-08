@@ -1,60 +1,46 @@
 import { getLocale, getTranslations } from "next-intl/server";
 
-import { ArrowIcon } from "@/components/layout/ArrowIcon";
-import { Reveal, RevealItem } from "@/components/layout/Reveal";
-import { CardCarousel } from "@/components/sections/CardCarousel";
+import {
+  CarouselSection,
+  type SectionSpacingBottom,
+  type SectionSpacingTop,
+} from "@/components/sections/CarouselSection";
 import { ExperienceCard } from "@/components/sections/ExperienceCard";
-import { buttonVariants } from "@/components/ui/button";
-import { Link } from "@/i18n/navigation";
-import { getResolvedExperiences } from "@/lib/experience-photos";
+import { CARD_PHOTO_SIZES } from "@/components/sections/photo-sizes";
+import { getResolvedExperiences } from "@/lib/resolved-experiences";
 
-const CARD_SIZES =
-  "(min-width: 75rem) 350px, (min-width: 64rem) 30vw, (min-width: 48rem) 45vw, calc(100vw - 64px)";
+type ExperiencesSectionProps = {
+  spacingTop?: SectionSpacingTop;
+  spacingBottom?: SectionSpacingBottom;
+};
 
-export async function ExperiencesSection() {
+export async function ExperiencesSection({
+  spacingTop,
+  spacingBottom,
+}: ExperiencesSectionProps) {
   const t = await getTranslations("Experiences");
   const experiences = await getResolvedExperiences(await getLocale());
 
   return (
-    <Reveal
-      labelledBy="experiences-title"
-      className="py-section md:py-section-desktop"
+    <CarouselSection
+      id="experiences"
+      title={t("sectionTitle")}
+      intro={t("sectionIntro")}
+      carouselLabel={t("carouselLabel")}
+      previousLabel={t("previous")}
+      nextLabel={t("next")}
+      seeAllHref="/experiences"
+      seeAllLabel={t("seeAll")}
+      spacingTop={spacingTop}
+      spacingBottom={spacingBottom}
     >
-      <div className="container-content">
-        <RevealItem className="text-center">
-          <h2
-            id="experiences-title"
-            className="font-display text-section font-medium text-rose"
-          >
-            {t("sectionTitle")}
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lead text-muted-foreground">
-            {t("sectionIntro")}
-          </p>
-        </RevealItem>
-
-        <div className="mt-8 md:mt-12">
-          <CardCarousel
-            label={t("carouselLabel")}
-            previousLabel={t("previous")}
-            nextLabel={t("next")}
-            footer={
-              <Link href="/experiences" className={buttonVariants({ size: "sm" })}>
-                {t("seeAll")}
-                <ArrowIcon className="size-4 md:size-5" />
-              </Link>
-            }
-          >
-            {experiences.map((experience) => (
-              <ExperienceCard
-                key={experience.slug}
-                experience={experience}
-                sizes={CARD_SIZES}
-              />
-            ))}
-          </CardCarousel>
-        </div>
-      </div>
-    </Reveal>
+      {experiences.map((experience) => (
+        <ExperienceCard
+          key={experience.slug}
+          experience={experience}
+          sizes={CARD_PHOTO_SIZES}
+        />
+      ))}
+    </CarouselSection>
   );
 }

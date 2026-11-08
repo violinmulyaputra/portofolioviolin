@@ -13,7 +13,7 @@ export function PageHeader({ title, intro, className }: PageHeaderProps) {
         {title}
       </h1>
       {intro && (
-        <p className="mx-auto mt-4 max-w-2xl text-lead text-muted-foreground">
+        <p className="mx-auto mt-4 max-w-4xl text-lead text-balance text-muted-foreground">
           {intro}
         </p>
       )}

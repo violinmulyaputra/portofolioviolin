@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { buttonVariants } from "@/components/ui/button";
-import type { ResolvedPhoto } from "@/data/experiences";
+import type { ResolvedPhoto } from "@/data/shared";
 import { cn } from "@/lib/utils";
 
 type PhotoCarouselVariant = "card" | "dialog";

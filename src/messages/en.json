@@ -10,6 +10,7 @@
     "about": "About",
     "projects": "Projects",
     "experiences": "Experiences",
+    "certificates": "Certificates",
     "cv": "CV",
     "contact": "Contact Me",
     "openMenu": "Open menu",
@@ -119,14 +120,13 @@
     }
   },
   "ProjectsPage": {
-    "title": "Projects"
-  },
-  "ProjectDetailPage": {
-    "title": "Project Details"
+    "title": "Projects",
+    "metaDescription": "Projects by Violin Mulya Putra, an Information Technology student at Universitas Gadjah Mada.",
+    "empty": "My projects will be added here soon."
   },
   "Experiences": {
     "sectionTitle": "Experiences",
-    "sectionIntro": "Here are some of my experiences.",
+    "sectionIntro": "Here are the organizations and committees I have taken part in.",
     "carouselLabel": "Experiences",
     "previous": "Previous experiences",
     "next": "Next experiences",
@@ -146,6 +146,28 @@
     "title": "Experiences",
     "metaDescription": "Organizational and committee experiences of Violin Mulya Putra, an Information Technology student at Universitas Gadjah Mada.",
     "intro": "Here are the organizations and committees I have taken part in."
+  },
+  "Certificates": {
+    "sectionTitle": "Certificates",
+    "sectionIntro": "Here are the certificates from courses and training I have completed.",
+    "carouselLabel": "Certificates",
+    "previous": "Previous certificates",
+    "next": "Next certificates",
+    "seeAll": "See all",
+    "seeDetails": "See details",
+    "seeDetailsFor": "See details: {title}",
+    "close": "Close",
+    "photos": "Images: {title}",
+    "photoAlt": "{title} certificate, image {n}",
+    "technologies": "Technologies",
+    "role": "Role",
+    "viewCertificate": "View certificate",
+    "viewCertificateFor": "View certificate: {title}, opens in a new tab"
+  },
+  "CertificatesPage": {
+    "title": "Certificates",
+    "metaDescription": "Course and training certificates earned by Violin Mulya Putra, an Information Technology student at Universitas Gadjah Mada.",
+    "intro": "Here are the certificates from courses and training I have completed."
   },
   "CvPage": {
     "title": "Curriculum Vitae (CV)",

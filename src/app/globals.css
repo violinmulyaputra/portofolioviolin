@@ -431,6 +431,10 @@
   }
 }
 
+@utility lines-2 {
+  min-height: 2lh;
+}
+
 @utility card-lift {
   transition:
     translate 150ms ease-out,

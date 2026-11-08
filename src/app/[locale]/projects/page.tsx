@@ -6,10 +6,10 @@ import { PageShell } from "@/components/layout/PageShell";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("ProjectsPage");
-  return { title: t("title") };
+  return { title: t("title"), description: t("metaDescription") };
 }
 
 export default function ProjectsPage() {
   const t = useTranslations("ProjectsPage");
-  return <PageShell title={t("title")} />;
+  return <PageShell title={t("title")} intro={t("empty")} />;
 }

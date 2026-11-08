@@ -10,6 +10,7 @@
     "about": "Tentang",
     "projects": "Proyek",
     "experiences": "Pengalaman",
+    "certificates": "Sertifikat",
     "cv": "CV",
     "contact": "Hubungi Saya",
     "openMenu": "Buka menu",
@@ -119,14 +120,13 @@
     }
   },
   "ProjectsPage": {
-    "title": "Proyek"
-  },
-  "ProjectDetailPage": {
-    "title": "Detail Proyek"
+    "title": "Proyek",
+    "metaDescription": "Proyek Violin Mulya Putra, mahasiswa Teknologi Informasi Universitas Gadjah Mada.",
+    "empty": "Proyek saya akan segera ditambahkan di sini."
   },
   "Experiences": {
     "sectionTitle": "Pengalaman",
-    "sectionIntro": "Berikut ini beberapa pengalaman saya.",
+    "sectionIntro": "Berikut ini adalah organisasi dan kepanitiaan yang pernah saya ikuti.",
     "carouselLabel": "Pengalaman",
     "previous": "Pengalaman sebelumnya",
     "next": "Pengalaman berikutnya",
@@ -146,6 +146,28 @@
     "title": "Pengalaman",
     "metaDescription": "Pengalaman organisasi dan kepanitiaan Violin Mulya Putra, mahasiswa Teknologi Informasi Universitas Gadjah Mada.",
     "intro": "Berikut ini adalah organisasi dan kepanitiaan yang pernah saya ikuti."
+  },
+  "Certificates": {
+    "sectionTitle": "Sertifikat",
+    "sectionIntro": "Berikut ini adalah sertifikat dari kursus dan pelatihan yang pernah saya selesaikan.",
+    "carouselLabel": "Sertifikat",
+    "previous": "Sertifikat sebelumnya",
+    "next": "Sertifikat berikutnya",
+    "seeAll": "Lihat semua",
+    "seeDetails": "Lihat detail",
+    "seeDetailsFor": "Lihat detail: {title}",
+    "close": "Tutup",
+    "photos": "Gambar: {title}",
+    "photoAlt": "Sertifikat {title}, gambar {n}",
+    "technologies": "Teknologi",
+    "role": "Peran",
+    "viewCertificate": "Lihat sertifikat",
+    "viewCertificateFor": "Lihat sertifikat: {title}, membuka di tab baru"
+  },
+  "CertificatesPage": {
+    "title": "Sertifikat",
+    "metaDescription": "Sertifikat kursus dan pelatihan Violin Mulya Putra, mahasiswa Teknologi Informasi Universitas Gadjah Mada.",
+    "intro": "Berikut ini adalah sertifikat dari kursus dan pelatihan yang pernah saya selesaikan."
   },
   "CvPage": {
     "title": "Curriculum Vitae (CV)",

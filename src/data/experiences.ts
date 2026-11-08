@@ -1,6 +1,6 @@
 import type { Locale } from "next-intl";
 
-export type Localized<T> = Record<Locale, T>;
+import type { Localized, ResolvedPhoto } from "@/data/shared";
 
 export type Experience = {
   slug: string;
@@ -10,11 +10,6 @@ export type Experience = {
   current: boolean;
   summary: Localized<string>;
   highlights: Localized<string[]>;
-};
-
-export type ResolvedPhoto = {
-  src: string;
-  alt: string;
 };
 
 export type ResolvedExperience = {
