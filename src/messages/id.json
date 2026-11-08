@@ -90,7 +90,33 @@
     }
   },
   "AboutPage": {
-    "title": "Tentang Saya"
+    "title": "Tentang Saya",
+    "metaDescription": "Kenali Violin Mulya Putra, mahasiswa Teknologi Informasi Universitas Gadjah Mada asal Semarang yang tertarik pada software development, analisis data, IoT, dan desain antarmuka.",
+    "lampOn": "Nyalakan lampu",
+    "lampOff": "Matikan lampu",
+    "photos": {
+      "portrait": "Potret Violin",
+      "family1": "Foto masa kecil",
+      "family2": "Foto keluarga",
+      "team": "Foto bersama tim"
+    },
+    "sections": {
+      "intro": {
+        "p1": "Halo! Perkenalkan nama saya <b>Violin</b> Mulya Putra. Saya berasal dari Semarang, Jawa Tengah.",
+        "p2": "Saya merupakan mahasiswa <b>Teknologi Informasi</b> di Universitas Gadjah Mada, dan saat ini merupakan tahun ketiga dalam studi saya.",
+        "p3": "Saya memiliki <b>ketertarikan</b> yang besar pada bidang software development, analisis data, Internet of Things (IoT), dan desain antarmuka."
+      },
+      "roots": {
+        "p1": "Ketertarikan saya pada dunia teknologi sebenarnya tumbuh dari lingkungan keluarga saya. Kebetulan, <b>ayah saya</b> juga seorang yang bekerja di industri IT. Sewaktu kecil, saya sering melihat beliau bekerja di rumah.",
+        "p2": "Melihatnya mengubah <b>barisan kode</b> menjadi sebuah sistem yang bermanfaat untuk banyak orang berhasil membuat saya takjub dan penasaran.",
+        "p3": "Dari momen-momen sederhana itulah perjalanan saya di dunia IT <b>dimulai</b>."
+      },
+      "growth": {
+        "p1": "Seiring berjalannya waktu, saya sadar bahwa saya menyukai proses merancang <b>User Interface dan User Experience (UI/UX)</b>, mulai dari mengeksplorasi tata letak, memilih tipografi, sampai memilih palet warna yang pas.",
+        "p2": "Di saat yang sama, hal-hal yang berkaitan dengan <b>analisis data dan IoT</b> juga berhasil membuat saya semangat untuk belajar lebih dalam.",
+        "p3": "Saya selalu antusias untuk terus belajar, mencoba hal baru, dan berkembang di <b>industri teknologi</b>!"
+      }
+    }
   },
   "ProjectsPage": {
     "title": "Proyek"

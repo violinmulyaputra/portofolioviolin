@@ -25,12 +25,10 @@ export default function CvPage() {
     <PageShell
       title={t("title")}
       intro={t("intro")}
-      centered
-      titleClassName="font-semibold text-rose"
       leading={<StringLights className="mb-7 md:mb-9" />}
     >
       {/* Actions */}
-      <div className="mt-8 flex flex-col items-center gap-3 md:flex-row md:items-start md:justify-center md:gap-4">
+      <div className="mt-8 flex flex-col items-center text-center gap-3 md:flex-row md:items-start md:justify-center md:gap-4">
         <div className="flex flex-col items-start gap-2">
           <a
             href={cv.href}

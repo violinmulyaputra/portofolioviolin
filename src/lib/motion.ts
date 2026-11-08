@@ -15,3 +15,5 @@ export const CROSSFADE: Transition = {
 export const INSTANT: Transition = {
   duration: 0,
 };
+
+export const REVEAL_STAGGER_S = 0.08;

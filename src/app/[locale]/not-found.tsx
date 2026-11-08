@@ -8,9 +8,11 @@ export default function NotFoundPage() {
   const t = useTranslations("NotFoundPage");
   return (
     <PageShell title={t("title")}>
-      <Link href="/" className={buttonVariants({ className: "mt-8" })}>
-        {t("back")}
-      </Link>
+      <div className="mt-8 flex justify-center">
+        <Link href="/" className={buttonVariants()}>
+          {t("back")}
+        </Link>
+      </div>
     </PageShell>
   );
 }

@@ -114,6 +114,10 @@
   --text-contact--line-height: 1.4;
   --text-contact-desktop: 1.25rem;
   --text-contact-desktop--line-height: 1.35;
+  --text-about: 1rem;
+  --text-about--line-height: 1.6;
+  --text-about-desktop: 1.0625rem;
+  --text-about-desktop--line-height: 1.6;
 
 }
 
@@ -140,6 +144,8 @@
   --container-frame-wall-mobile: 9.5rem;
   --container-contact-scene-mobile: 250px;
   --container-contact-scene: 288px;
+  --container-about-section: 1048px;
+  --container-about-text: 560px;
 
   --aspect-desk: 1840 / 925;
   --aspect-desk-compact: 1000 / 360;
@@ -266,7 +272,7 @@
 
 @utility lamp-glow {
   top: var(--glow-top, 46%);
-  left: 50%;
+  left: var(--glow-left, 50%);
   width: var(--glow-size, 360%);
   aspect-ratio: 1;
   translate: -50% -50%;
@@ -324,6 +330,63 @@
 @utility floor-lamp-glow {
   --glow-top: 14%;
   --glow-size: 300%;
+  --glow-clip: none;
+}
+
+/* About */
+@utility about-section {
+  display: grid;
+  grid-template-areas:
+    "scene"
+    "text";
+  row-gap: 24px;
+
+  @media (width >= 48rem) {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 5fr);
+    grid-template-areas: "scene text";
+    align-items: center;
+    column-gap: 32px;
+    max-width: var(--container-about-section);
+    margin-inline: auto;
+  }
+
+  @media (width >= 80rem) {
+    column-gap: 48px;
+  }
+}
+
+@utility about-section-reverse {
+  @media (width >= 48rem) {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 4fr);
+    grid-template-areas: "text scene";
+  }
+}
+
+@utility area-scene {
+  grid-area: scene;
+}
+
+@utility about-scene {
+  position: relative;
+  margin-inline: auto;
+  width: min(var(--scene-max), var(--scene-share));
+  aspect-ratio: var(--scene-ratio);
+}
+
+@utility about-prose {
+  & > p + p {
+    margin-top: 1.5em;
+  }
+
+  & b {
+    font-weight: 700;
+  }
+}
+
+@utility about-lamp-glow {
+  --glow-top: 14%;
+  --glow-left: 86%;
+  --glow-size: 260%;
   --glow-clip: none;
 }
 

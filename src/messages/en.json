@@ -90,7 +90,33 @@
     }
   },
   "AboutPage": {
-    "title": "About Me"
+    "title": "About Me",
+    "metaDescription": "Get to know Violin Mulya Putra, an Information Technology student at Universitas Gadjah Mada from Semarang, interested in software development, data analysis, IoT, and interface design.",
+    "lampOn": "Turn on the lamp",
+    "lampOff": "Turn off the lamp",
+    "photos": {
+      "portrait": "Portrait of Violin",
+      "family1": "Childhood photo",
+      "family2": "Family photo",
+      "team": "Group photo with a team"
+    },
+    "sections": {
+      "intro": {
+        "p1": "Hello! My name is <b>Violin</b> Mulya Putra. I am from Semarang, Central Java.",
+        "p2": "I am an <b>Information Technology</b> student at Universitas Gadjah Mada, currently in my third year of study.",
+        "p3": "I have a strong <b>interest</b> in software development, data analysis, the Internet of Things (IoT), and interface design."
+      },
+      "roots": {
+        "p1": "My interest in technology actually grew out of my family environment. As it happens, <b>my father</b> also works in the IT industry. As a child, I often watched him work at home.",
+        "p2": "Seeing him turn <b>lines of code</b> into a system that benefits many people amazed me and made me curious.",
+        "p3": "My journey in the world of IT <b>began</b> from those simple moments."
+      },
+      "growth": {
+        "p1": "Over time, I realized that I enjoy designing <b>User Interfaces and User Experiences (UI/UX)</b>, from exploring layouts and choosing typography to picking the right color palette.",
+        "p2": "At the same time, topics related to <b>data analysis and IoT</b> also made me eager to learn more deeply.",
+        "p3": "I am always eager to keep learning, try new things, and grow in the <b>technology industry</b>!"
+      }
+    }
   },
   "ProjectsPage": {
     "title": "Projects"

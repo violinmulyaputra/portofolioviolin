@@ -1,22 +1,21 @@
 import type { ReactNode } from "react";
 
+import { PageHeader } from "@/components/layout/PageHeader";
 import { cn } from "@/lib/utils";
 
 type PageShellProps = {
   title: string;
   intro?: string;
-  centered?: boolean;
-  titleClassName?: string;
   leading?: ReactNode;
+  className?: string;
   children?: ReactNode;
 };
 
 export function PageShell({
   title,
   intro,
-  centered = false,
-  titleClassName = "font-medium",
   leading,
+  className,
   children,
 }: PageShellProps) {
   return (
@@ -26,25 +25,14 @@ export function PageShell({
       className={cn(
         "flex-1 outline-none",
         leading
-          ? "pb-section md:pb-section-desktop"
-          : "py-section md:py-section-desktop",
+          ? "pb-page md:pb-page-desktop"
+          : "py-page md:py-page-desktop",
+        className,
       )}
     >
       {leading}
-      <div className={cn("container-content", centered && "text-center")}>
-        <h1 className={`font-display text-section ${titleClassName}`}>
-          {title}
-        </h1>
-        {intro && (
-          <p
-            className={cn(
-              "mt-4 max-w-2xl text-lead text-muted-foreground",
-              centered && "mx-auto",
-            )}
-          >
-            {intro}
-          </p>
-        )}
+      <div className="container-content">
+        <PageHeader title={title} intro={intro} />
         {children}
       </div>
     </main>
