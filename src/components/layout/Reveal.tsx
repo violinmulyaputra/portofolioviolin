@@ -26,10 +26,11 @@ const ITEM_VARIANTS: Variants = {
 
 type RevealProps = {
   className?: string;
+  labelledBy?: string;
   children: ReactNode;
 };
 
-export function Reveal({ className, children }: RevealProps) {
+export function Reveal({ className, labelledBy, children }: RevealProps) {
   const ref = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const [state, setState] = useState<RevealState>("hidden");
@@ -59,6 +60,7 @@ export function Reveal({ className, children }: RevealProps) {
     <motion.section
       ref={ref}
       className={className}
+      aria-labelledby={labelledBy}
       initial="hidden"
       animate={prefersReducedMotion ? "instant" : state}
     >

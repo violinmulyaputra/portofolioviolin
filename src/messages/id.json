@@ -124,11 +124,28 @@
   "ProjectDetailPage": {
     "title": "Detail Proyek"
   },
-  "ExperiencesPage": {
-    "title": "Pengalaman"
+  "Experiences": {
+    "sectionTitle": "Pengalaman",
+    "sectionIntro": "Berikut ini beberapa pengalaman saya.",
+    "carouselLabel": "Pengalaman",
+    "previous": "Pengalaman sebelumnya",
+    "next": "Pengalaman berikutnya",
+    "seeAll": "Lihat semua",
+    "seeDetails": "Lihat detail",
+    "current": "Sekarang",
+    "seeDetailsFor": "Lihat detail: {role}",
+    "close": "Tutup",
+    "photos": "Foto: {role}",
+    "photoAlt": "Dokumentasi {organization}, foto {n}",
+    "previousPhoto": "Foto sebelumnya",
+    "nextPhoto": "Foto berikutnya",
+    "photoOf": "Foto {n} dari {total}",
+    "keyActivities": "Aktivitas utama"
   },
-  "ExperienceDetailPage": {
-    "title": "Detail Pengalaman"
+  "ExperiencesPage": {
+    "title": "Pengalaman",
+    "metaDescription": "Pengalaman organisasi dan kepanitiaan Violin Mulya Putra, mahasiswa Teknologi Informasi Universitas Gadjah Mada.",
+    "intro": "Berikut ini adalah organisasi dan kepanitiaan yang pernah saya ikuti."
   },
   "CvPage": {
     "title": "Curriculum Vitae (CV)",
