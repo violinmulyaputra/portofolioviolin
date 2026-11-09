@@ -23,7 +23,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center font-medium underline-hover"
+                  className="inline-flex min-h-11 min-w-11 items-center justify-center font-medium underline-hover"
                 >
                   {social.label}
                   <span className="sr-only"> ({t("newTab")})</span>
@@ -33,10 +33,10 @@ export function Footer() {
             <li>
               <a
                 href={EMAIL_HREF}
-                className="inline-flex min-h-11 items-center font-medium underline-hover"
+                aria-label={t("emailLabel", { email: EMAIL })}
+                className="inline-flex min-h-11 min-w-11 items-center justify-center font-medium underline-hover"
               >
-                <span className="sr-only">{t("email")}: </span>
-                {EMAIL}
+                {t("email")}
               </a>
             </li>
           </ul>

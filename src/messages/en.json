@@ -26,6 +26,7 @@
     "copyright": "© 2026 Violin Mulya",
     "socials": "Social links",
     "email": "Email",
+    "emailLabel": "Send an email to {email}",
     "newTab": "opens in a new tab"
   },
   "Connect": {
