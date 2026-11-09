@@ -32,7 +32,7 @@ type CardCarouselProps = {
 
 const ARROW_CLASS = cn(
   buttonVariants({ variant: "secondary", size: "icon" }),
-  "carousel-arrow size-9 md:size-12",
+  "carousel-arrow size-carousel-arrow-mobile md:size-12",
   "aria-disabled:pointer-events-none aria-disabled:cursor-not-allowed aria-disabled:bg-blush aria-disabled:text-muted-foreground aria-disabled:shadow-none",
 );
 

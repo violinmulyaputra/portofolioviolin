@@ -28,6 +28,9 @@
     "email": "Email",
     "newTab": "terbuka di tab baru"
   },
+  "Connect": {
+    "title": "Hubungi Saya!"
+  },
   "Hero": {
     "greeting": "Halo, saya",
     "name": "Violin Mulya!",
@@ -46,6 +49,10 @@
       "experiences": {
         "spine": "Pengalaman",
         "label": "Halaman Pengalaman"
+      },
+      "certificates": {
+        "spine": "Sertifikat",
+        "label": "Buka halaman Sertifikat"
       },
       "cv": {
         "spine": "CV",

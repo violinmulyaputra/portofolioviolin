@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @import "shadcn/tailwind.css";
 
+@custom-variant card-compact {
+  @media (width < 48rem) {
+    :where(.carousel-item) & {
+      @slot;
+    }
+  }
+}
+
 /* Tokens */
 :root {
   --background: #fffbfb;
@@ -143,13 +151,23 @@
   --spacing-page-desktop: 48px;
   --container-content: 1200px;
   --spacing-carousel-arrow-offset: 64px;
-  --spacing-carousel-arrow-overlap: 12px;
+  --spacing-carousel-arrow-mobile: 40px;
+  --spacing-carousel-arrow-space-mobile: 32px;
+  --container-carousel-card-max-mobile: 28rem;
+  --container-carousel-card-mobile: min(
+    100cqw - 2 * var(--spacing-carousel-arrow-space-mobile),
+    var(--container-carousel-card-max-mobile)
+  );
   --container-desk: 560px;
   --container-desk-compact: 760px;
   --container-hero-text: 58%;
   --container-frame-wall-mobile: 9.5rem;
   --container-contact-scene-mobile: 250px;
   --container-contact-scene: 288px;
+  --container-connect-scene: 20rem;
+  --container-connect-scene-lg: 27.5rem;
+  --container-connect-group: 72rem;
+  --container-connect-scene-mobile: 70%;
   --container-about-section: 1048px;
   --container-about-text: 560px;
   --container-dialog: 720px;
@@ -403,14 +421,21 @@
 /* Cards */
 @utility carousel-track {
   display: flex;
-  gap: 24px;
+  gap: 16px;
+  width: calc(var(--container-carousel-card-mobile) + 16px);
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
-  scroll-padding-inline: 8px;
   scrollbar-width: none;
-  margin: -8px -8px -24px;
+  margin: -8px auto -24px;
   padding: 8px 8px 24px;
+
+  @media (width >= 48rem) {
+    gap: 24px;
+    width: auto;
+    scroll-padding-inline: 8px;
+    margin: -8px -8px -24px;
+  }
 
   &::-webkit-scrollbar {
     display: none;
@@ -418,12 +443,13 @@
 }
 
 @utility carousel-item {
-  flex: 0 0 100%;
+  flex: 0 0 var(--container-carousel-card-mobile);
   min-width: 0;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 
   @media (width >= 48rem) {
     flex-basis: calc((100% - 24px) / 2);
+    scroll-snap-align: start;
   }
 
   @media (width >= 64rem) {
@@ -511,18 +537,16 @@
 @utility carousel-arrow {
   position: absolute;
   z-index: 10;
-  top: calc((100% + 1rem + (100cqw - 2rem) * 3 / 4) / 2);
+  top: 50%;
   transform: translateY(-50%);
 
   &::before {
     content: "";
     position: absolute;
-    inset: -4px;
+    inset: -2px;
   }
 
   @media (width >= 48rem) {
-    top: 50%;
-
     &::before {
       content: none;
     }
@@ -530,7 +554,10 @@
 }
 
 @utility carousel-arrow-previous {
-  left: calc(var(--spacing-carousel-arrow-overlap) * -1);
+  left: calc(
+    50% - var(--container-carousel-card-mobile) / 2 -
+      var(--spacing-carousel-arrow-mobile) - var(--spacing)
+  );
 
   @media (width >= 48rem) {
     left: 0;
@@ -542,7 +569,10 @@
 }
 
 @utility carousel-arrow-next {
-  right: calc(var(--spacing-carousel-arrow-overlap) * -1);
+  right: calc(
+    50% - var(--container-carousel-card-mobile) / 2 -
+      var(--spacing-carousel-arrow-mobile) - var(--spacing)
+  );
 
   @media (width >= 48rem) {
     right: 0;

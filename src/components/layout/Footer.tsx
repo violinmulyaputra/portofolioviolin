@@ -8,15 +8,15 @@ export function Footer() {
 
   return (
     <footer className="bg-blush">
-      <div className="container-content flex flex-col gap-6 py-12 md:flex-row md:items-center md:justify-between">
-        <div className="flex flex-col gap-1">
-          <p className="font-display text-2xl font-medium">
+      <div className="container-content flex flex-col gap-3 py-6 md:flex-row md:items-center md:justify-between md:gap-8">
+        <div className="flex shrink-0 flex-col">
+          <p className="font-display text-2xl leading-tight font-medium">
             {tMeta("siteName")}
           </p>
           <p className="text-foreground">{t("copyright")}</p>
         </div>
         <nav aria-label={t("socials")}>
-          <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <ul className="flex flex-wrap items-center gap-x-4 md:justify-end">
             {SOCIALS.map((social) => (
               <li key={social.key}>
                 <a

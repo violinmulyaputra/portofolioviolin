@@ -28,6 +28,9 @@
     "email": "Email",
     "newTab": "opens in a new tab"
   },
+  "Connect": {
+    "title": "Let's Connect!"
+  },
   "Hero": {
     "greeting": "Hello, I'm",
     "name": "Violin Mulya!",
@@ -46,6 +49,10 @@
       "experiences": {
         "spine": "Experiences",
         "label": "Experiences page"
+      },
+      "certificates": {
+        "spine": "Certificates",
+        "label": "Open the Certificates page"
       },
       "cv": {
         "spine": "CV",

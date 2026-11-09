@@ -20,7 +20,13 @@ export type Illustration = {
   height: number;
 };
 
-export type BookKey = "about" | "projects" | "experiences" | "cv" | "contact";
+export type BookKey =
+  | "about"
+  | "projects"
+  | "experiences"
+  | "certificates"
+  | "cv"
+  | "contact";
 
 export type BookSpine = {
   centerX: number;
@@ -117,6 +123,7 @@ export const ILLUSTRATIONS = {
   bookAbout: { src: "/illustrations/book-about.webp", width: 563, height: 1080 },
   bookProjects: { src: "/illustrations/book-projects.webp", width: 268, height: 1080 },
   bookExperiences: { src: "/illustrations/book-experiences.webp", width: 223, height: 1080 },
+  bookCertificates: { src: "/illustrations/book-certificates.webp", width: 266, height: 1080 },
   bookCv: { src: "/illustrations/book-cv.webp", width: 549, height: 1080 },
   bookContact: { src: "/illustrations/book-contact.webp", width: 311, height: 1080 },
   lampOff: { src: "/illustrations/lamp-off.webp", width: 730, height: 1080 },
@@ -137,35 +144,42 @@ export const BOOKS: readonly BookData[] = [
     href: "/about",
     image: ILLUSTRATIONS.bookAbout,
     spine: { centerX: 49.3, centerY: 52.4, length: 61.8, thickness: 34.4, rotate: 17, orientation: "vertical" },
-    placement: { compact: { left: 1, height: 27.09 }, wide: { left: 0.27, height: 14.05 } },
+    placement: { compact: { left: 0.6, height: 27.09 }, wide: { left: 0.27, height: 14.05 } },
   },
   {
     key: "projects",
     href: "/projects",
     image: ILLUSTRATIONS.bookProjects,
     spine: { centerX: 49.8, centerY: 50.7, length: 59.2, thickness: 66.6, rotate: 0, orientation: "vertical" },
-    placement: { compact: { left: 6, height: 46.39 }, wide: { left: 3.91, height: 24.11 } },
+    placement: { compact: { left: 5.6, height: 46.39 }, wide: { left: 3.91, height: 24.11 } },
   },
   {
     key: "experiences",
     href: "/experiences",
     image: ILLUSTRATIONS.bookExperiences,
     spine: { centerX: 49.1, centerY: 51.2, length: 65.3, thickness: 63.3, rotate: 0, orientation: "vertical" },
-    placement: { compact: { left: 10, height: 55.42 }, wide: { left: 6.79, height: 28.76 } },
+    placement: { compact: { left: 9.6, height: 55.42 }, wide: { left: 6.79, height: 28.76 } },
+  },
+  {
+    key: "certificates",
+    href: "/certificates",
+    image: ILLUSTRATIONS.bookCertificates,
+    spine: { centerX: 49.8, centerY: 50.8, length: 59.8, thickness: 68.8, rotate: 0, orientation: "vertical" },
+    placement: { compact: { left: 13.6, height: 49.4 }, wide: { left: 9.65, height: 25.6 } },
   },
   {
     key: "cv",
     href: "/cv",
     image: ILLUSTRATIONS.bookCv,
     spine: { centerX: 49.9, centerY: 52.3, length: 50.8, thickness: 70.6, rotate: 0, orientation: "horizontal" },
-    placement: { compact: { left: 13.9, height: 29.44 }, wide: { left: 9.62, height: 15.24 } },
+    placement: { compact: { left: 17.86, height: 29.44 }, wide: { left: 12.66, height: 15.24 } },
   },
   {
     key: "contact",
     href: "/contact",
     image: ILLUSTRATIONS.bookContact,
     spine: { centerX: 49.1, centerY: 56.1, length: 78.9, thickness: 67.5, rotate: 0, orientation: "vertical" },
-    placement: { compact: { left: 19.2, height: 39.59 }, wide: { left: 13.48, height: 20.54 } },
+    placement: { compact: { left: 23.16, height: 39.59 }, wide: { left: 16.52, height: 20.54 } },
   },
 ];
 
@@ -247,23 +261,23 @@ export const STICKY_NOTES: readonly {
   {
     key: "instagram",
     image: ILLUSTRATIONS.stickyInstagram,
-    placement: { compact: { left: 50, top: 11.11, height: 18.06 }, wide: { left: 45.49, top: 69.41, height: 9.3 } },
+    placement: { compact: { left: 52.9, top: 11.11, height: 18.06 }, wide: { left: 45.49, top: 69.41, height: 9.3 } },
   },
   {
     key: "github",
     image: ILLUSTRATIONS.stickyGithub,
-    placement: { compact: { left: 57.5, top: 1.94, height: 18.06 }, wide: { left: 52.17, top: 66.16, height: 9.73 } },
+    placement: { compact: { left: 60.4, top: 1.94, height: 18.06 }, wide: { left: 52.17, top: 66.16, height: 9.73 } },
   },
   {
     key: "linkedin",
     image: ILLUSTRATIONS.stickyLinkedin,
-    placement: { compact: { left: 53.5, top: 33.06, height: 18.06 }, wide: { left: 50.43, top: 79.46, height: 9.4 } },
+    placement: { compact: { left: 56.4, top: 33.06, height: 18.06 }, wide: { left: 50.43, top: 79.46, height: 9.4 } },
   },
 ];
 
 // Lamp and decorations
 export const LAMP_PLACEMENT: DeskPlacement = {
-  compact: { left: 82, height: 55.28 },
+  compact: { left: 83.4, height: 55.28 },
   wide: { left: 88.32, height: 28.65 },
 };
 
@@ -275,21 +289,21 @@ export const DECORATIONS: readonly {
   {
     key: "laptop",
     image: ILLUSTRATIONS.laptop,
-    placement: { compact: { left: 25.5, height: 47.5 }, wide: { left: 22.01, height: 24.65 } },
+    placement: { compact: { left: 28.6, height: 47.5 }, wide: { left: 22.01, height: 24.65 } },
   },
   {
     key: "mug",
     image: ILLUSTRATIONS.mug,
-    placement: { compact: { left: 49.5, height: 15.42 }, wide: { left: 39.95, height: 8 } },
+    placement: { compact: { left: 52.4, height: 15.42 }, wide: { left: 39.95, height: 8 } },
   },
   {
     key: "stationery",
     image: ILLUSTRATIONS.stationery,
-    placement: { compact: { left: 60, height: 32.78 }, wide: { left: 64.13, height: 16.97 } },
+    placement: { compact: { left: 62.2, height: 32.78 }, wide: { left: 64.13, height: 16.97 } },
   },
   {
     key: "plant",
     image: ILLUSTRATIONS.plant,
-    placement: { compact: { left: 68.5, height: 50.42 }, wide: { left: 77.45, height: 26.16 } },
+    placement: { compact: { left: 70, height: 50.42 }, wide: { left: 77.45, height: 26.16 } },
   },
 ];

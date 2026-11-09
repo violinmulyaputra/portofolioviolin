@@ -24,7 +24,7 @@ export function DetailDialog({
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger
         aria-label={triggerAriaLabel}
-        className={buttonVariants({ size: "sm" })}
+        className={buttonVariants({ size: "card" })}
       >
         {triggerLabel}
       </DialogTrigger>

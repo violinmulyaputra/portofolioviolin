@@ -28,7 +28,7 @@ export function ExperienceCard({
     <article
       aria-labelledby={titleId}
       className={cn(
-        "card-lift flex h-full flex-col gap-4 rounded-card bg-card p-4 shadow-soft",
+        "card-lift flex h-full flex-col gap-4 rounded-card bg-card p-4 shadow-soft card-compact:p-3",
         className,
       )}
     >
@@ -44,7 +44,7 @@ export function ExperienceCard({
         </p>
         <Heading
           id={titleId}
-          className="font-display text-2xl leading-tight font-medium text-foreground"
+          className="font-display text-2xl leading-tight font-medium text-foreground card-compact:line-clamp-2 card-compact:text-xl"
         >
           {experience.role}
         </Heading>
@@ -52,7 +52,7 @@ export function ExperienceCard({
           <span>{experience.period}</span>
           {experience.current && <CurrentBadge label={t("current")} />}
         </p>
-        <p className="mt-2 line-clamp-2 text-base leading-body text-foreground">
+        <p className="mt-2 line-clamp-2 text-base leading-body text-foreground card-compact:text-sm">
           {experience.summary}
         </p>
         <div className="mt-auto pt-4">

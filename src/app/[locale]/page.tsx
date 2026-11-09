@@ -1,5 +1,6 @@
 import { Hero } from "@/components/hero/Hero";
 import { CertificatesSection } from "@/components/sections/CertificatesSection";
+import { ConnectSection } from "@/components/sections/ConnectSection";
 import { ExperiencesSection } from "@/components/sections/ExperiencesSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { PROJECTS } from "@/data/projects";
@@ -15,7 +16,8 @@ export default function HomePage() {
         spacingTop={hasProjects ? "pair" : "section"}
         spacingBottom="pair"
       />
-      <CertificatesSection spacingTop="pair" spacingBottom="footer" />
+      <CertificatesSection spacingTop="pair" spacingBottom="pair" />
+      <ConnectSection />
     </main>
   );
 }

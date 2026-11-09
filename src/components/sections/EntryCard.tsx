@@ -37,7 +37,7 @@ export function EntryCard({
     <article
       aria-labelledby={titleId}
       className={cn(
-        "card-lift flex h-full flex-col gap-4 rounded-card bg-card p-4 shadow-soft",
+        "card-lift flex h-full flex-col gap-4 rounded-card bg-card p-4 shadow-soft card-compact:p-3",
         className,
       )}
     >
@@ -50,15 +50,15 @@ export function EntryCard({
       <div className="flex flex-1 flex-col gap-1 px-1">
         <Heading
           id={titleId}
-          className="lines-2 line-clamp-2 font-display text-2xl leading-tight font-medium text-foreground"
+          className="lines-2 line-clamp-2 font-display text-2xl leading-tight card-compact:text-xl font-medium text-foreground"
         >
           {title}
         </Heading>
-        <p className="lines-2 mt-2 line-clamp-2 text-base leading-body text-foreground">
+        <p className="lines-2 mt-2 line-clamp-2 text-base leading-body text-foreground card-compact:text-sm">
           {summary}
         </p>
         {technologies.length > 0 && (
-          <p className="relative line-clamp-1 text-base leading-body text-muted-foreground">
+          <p className="relative line-clamp-1 text-base leading-body text-muted-foreground card-compact:text-sm">
             <span className="sr-only">{technologiesLabel}: </span>
             {technologies.join(", ")}
           </p>

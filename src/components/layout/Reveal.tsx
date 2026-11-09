@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useState, type ReactNode } from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 
 import { INSTANT, SHORT_SPRING } from "@/lib/motion";
@@ -10,6 +10,11 @@ const REVEAL_FADE_S = 0.4;
 const REVEAL_THRESHOLD = 0.2;
 
 type RevealState = "hidden" | "instant" | "visible";
+
+const REVEAL_TAGS = {
+  section: motion.section,
+  div: motion.div,
+};
 
 const ITEM_VARIANTS: Variants = {
   hidden: { opacity: 0, y: REVEAL_OFFSET_PX, transition: INSTANT },
@@ -25,13 +30,20 @@ const ITEM_VARIANTS: Variants = {
 };
 
 type RevealProps = {
+  as?: keyof typeof REVEAL_TAGS;
   className?: string;
   labelledBy?: string;
   children: ReactNode;
 };
 
-export function Reveal({ className, labelledBy, children }: RevealProps) {
-  const ref = useRef<HTMLElement>(null);
+export function Reveal({
+  as = "section",
+  className,
+  labelledBy,
+  children,
+}: RevealProps) {
+  const Tag = REVEAL_TAGS[as];
+  const [element, setElement] = useState<HTMLElement | null>(null);
   const prefersReducedMotion = useReducedMotion();
   const [state, setState] = useState<RevealState>("hidden");
 
@@ -39,7 +51,6 @@ export function Reveal({ className, labelledBy, children }: RevealProps) {
   useLayoutEffect(() => () => setState("hidden"), []);
 
   useEffect(() => {
-    const element = ref.current;
     if (!element) return;
     let firstCallback = true;
     const observer = new IntersectionObserver(
@@ -54,18 +65,18 @@ export function Reveal({ className, labelledBy, children }: RevealProps) {
     );
     observer.observe(element);
     return () => observer.disconnect();
-  }, []);
+  }, [element]);
 
   return (
-    <motion.section
-      ref={ref}
+    <Tag
+      ref={setElement}
       className={className}
       aria-labelledby={labelledBy}
       initial="hidden"
       animate={prefersReducedMotion ? "instant" : state}
     >
       {children}
-    </motion.section>
+    </Tag>
   );
 }
 
